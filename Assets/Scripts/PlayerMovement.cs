@@ -4,30 +4,87 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float moveSpeed;
-    public Rigidbody2D rb;
-    private Vector2 moveDirection;
-    private bool isWalking = false;
+    public CharacterController2D controller;
+    public Rigidbody2D myRigidBody;
+    public Animator myAnimator;
 
+    MineBlock mineBlock;
+
+    public float runSpeed = 40f;
+    [SerializeField] float miningSpeed = 1f;
+    float horizontalMove = 0f;
+    bool jump = false;
+    bool isFlipped = false;
+
+
+    private void Awake()
+    {
+        mineBlock = FindObjectOfType<MineBlock>();
+    }
+
+    // Update is called once per frame
     void Update()
     {
-        ProcessInputs();
+        GetInputs();
     }
 
     private void FixedUpdate()
     {
         Move();
+        Swing();
+
     }
 
-    private void ProcessInputs()
+    private void GetInputs()
     {
-        float moveX = Input.GetAxisRaw("Horizontal");
+        horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
 
-        moveDirection = new Vector2(moveX, 0f).normalized;
+        if (Input.GetButtonDown("Jump"))
+        {
+            jump = true;
+            myAnimator.SetBool("isJumping", true);
+
+        }
+
+        
     }
 
     private void Move()
     {
-        rb.velocity = new Vector2(moveDirection.x * moveSpeed, moveDirection.y * moveSpeed);
+        controller.Move(horizontalMove * Time.fixedDeltaTime, false, jump);
+        jump = false;
+
+        bool playerHasHorizontalSpeed = Mathf.Abs(myRigidBody.velocity.x) > .1f;
+        myAnimator.SetBool("isRunning", playerHasHorizontalSpeed);
+
+        if (controller.m_Grounded)
+        {
+            myAnimator.SetBool("isJumping", false);
+        }
+        else
+        {
+            myAnimator.SetBool("isJumping", true);
+        }
+
+    }
+
+    public void Swing()
+    {
+        if (Input.GetMouseButton(0))
+        {
+            myAnimator.SetBool("isSwinging", true);
+            myAnimator.speed = miningSpeed;
+        }
+        else
+        {
+            myAnimator.SetBool("isSwinging", false);
+        }
+    }
+
+    // Animator function
+    public void Hit()
+    {
+        mineBlock.checkIfMineBlockExists();
+
     }
 }
