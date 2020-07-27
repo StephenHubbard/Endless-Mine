@@ -5,7 +5,7 @@ using UnityEngine;
 public class ProceduralGeneration : MonoBehaviour
 {
     [SerializeField] int chunks;
-    [SerializeField] GameObject dirt;
+    [SerializeField] GameObject dirt, stone, iron, diamond, coal;
     [SerializeField] GameObject chunkPrefab;
 
     // Cave Variables
@@ -25,11 +25,13 @@ public class ProceduralGeneration : MonoBehaviour
     {
         seed = Random.Range(0, 1000000);
         GenerateCaves();
+        genChunks();
+
     }
 
     private void Start()
     {
-        genChunks();
+        SpreadMinerals();
     }
 
     public void genChunks()
@@ -56,18 +58,34 @@ public class ProceduralGeneration : MonoBehaviour
         {
             for (int y = 0; y < 20; y++)
             {
-                if (cavePoints[spawnColumn + x, -(spawnRow - y)] == 1)
+                int mineralGen = Random.Range(0, 101);
+
+                if (cavePoints[spawnColumn + x, -(spawnRow - y)] == 1 && mineralGen < 10)
+                {
+                    GameObject newBlockY = Instantiate(stone, new Vector2(spawnColumn + x, spawnRow - y), Quaternion.identity);
+                    newBlockY.transform.parent = chunk.transform;
+                }
+                else if (cavePoints[spawnColumn + x, -(spawnRow - y)] == 1 && mineralGen == 10)
+                {
+                    GameObject newBlockY = Instantiate(iron, new Vector2(spawnColumn + x, spawnRow - y), Quaternion.identity);
+                    newBlockY.transform.parent = chunk.transform;
+                }
+                else if (cavePoints[spawnColumn + x, -(spawnRow - y)] == 1 && mineralGen == 11)
+                {
+                    GameObject newBlockY = Instantiate(coal, new Vector2(spawnColumn + x, spawnRow - y), Quaternion.identity);
+                    newBlockY.transform.parent = chunk.transform;
+                }
+                else if (cavePoints[spawnColumn + x, -(spawnRow - y)] == 1 && mineralGen == 12 && (y + -spawnRow) > 40)
+                {
+                    GameObject newBlockY = Instantiate(diamond, new Vector2(spawnColumn + x, spawnRow - y), Quaternion.identity);
+                    newBlockY.transform.parent = chunk.transform;
+                }
+                else if (cavePoints[spawnColumn + x, -(spawnRow - y)] == 1)
                 {
                     GameObject newBlockY = Instantiate(dirt, new Vector2(spawnColumn + x, spawnRow - y), Quaternion.identity);
                     newBlockY.transform.parent = chunk.transform;
                 }
             }
-
-            //Transform thisChunk = chunk.transform;
-            //foreach (Transform child in thisChunk)
-            //{
-            //    child.gameObject.SetActive(false);
-            //}
         }
 
         numberOfChunks++;
@@ -147,7 +165,102 @@ public class ProceduralGeneration : MonoBehaviour
                 }
             }
         }
-
         return wallNeighbors;
     }
+
+
+    private void SpreadMinerals()
+    {
+        // STONE
+        int stoneStarterInt = 0;
+        int spreadStoneMultiplier = 3;
+        int stoneRarity = 3;
+
+        if (stoneStarterInt < spreadStoneMultiplier)
+        {
+            GenMinerals(stone, "Stone(Clone)", stoneRarity);
+            stoneStarterInt++;
+        }
+
+        // DIAMONDS
+        int diamondStarterInt = 0;
+        int spreaddiamondMultiplier = 2;
+        int diamondRarity = 8;
+
+        if (diamondStarterInt < spreaddiamondMultiplier)
+        {
+            GenMinerals(diamond, "Diamond(Clone)", diamondRarity);
+            diamondStarterInt++;
+        }
+
+        // IRON
+        int ironStarterInt = 0;
+        int spreadIronMultiplier = 2;
+        int ironRarity = 5;
+
+        if (ironStarterInt < spreadIronMultiplier)
+        {
+            GenMinerals(iron, "Iron(Clone)", ironRarity);
+            ironStarterInt++;
+        }
+
+        // COAL
+        int coalStarterInt = 0;
+        int spreadCoalMultiplier = 2;
+        int coalRarity = 5;
+
+        if (ironStarterInt < spreadCoalMultiplier)
+        {
+            GenMinerals(iron, "Iron(Clone)", coalRarity);
+            coalStarterInt++;
+        }
+    }
+
+        private void GenMinerals(GameObject mineral, string mineralString, int mineralRarity)
+    {
+        int width = 60;
+        int depth = (chunks / 3) * 20;
+
+        for (int x = 0; x < width; x++)
+        {
+            for (int y = 0; y < depth; y++)
+            {
+                Vector2 mineralLocation = new Vector2(x, -y);
+                Collider2D[] getBlockType = Physics2D.OverlapCircleAll(mineralLocation, 0.1f);
+                if (getBlockType.Length > 0)
+                {
+                    if (getBlockType[0].gameObject.name == mineralString)
+                    {
+                        Vector2 gemLocation = getBlockType[0].gameObject.transform.position;
+                        Collider2D[] gemIsTouching = Physics2D.OverlapCircleAll(gemLocation, .6f);
+                        if (gemIsTouching.Length > 0)
+                        {
+
+                            for (int i = 0; i < gemIsTouching.Length; i++)
+                            {
+                                if (gemIsTouching[i].gameObject.name != mineralString)
+                                {
+                                    bool shouldSpreadGem = false;
+                                    if (Random.Range(0, mineralRarity) == 1)
+                                    {
+                                        shouldSpreadGem = true;
+                                    }
+
+                                    if (shouldSpreadGem == true)
+                                    {
+                                        GameObject newMineral = Instantiate(mineral, gemIsTouching[i].transform.position, Quaternion.identity);
+                                        newMineral.transform.parent = gemIsTouching[i].transform.parent;
+                                        Destroy(gemIsTouching[i].gameObject);
+                                    }
+
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+
 }

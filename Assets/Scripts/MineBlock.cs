@@ -9,15 +9,16 @@ public class MineBlock : MonoBehaviour
     private bool colliderInBlock = false;
     private GameObject currentBlock = null;
 
+    // Audio sources
+    public AudioSource dirtSFX;
+
     private void Update()
     {
     }
 
     private void OnTriggerStay2D(Collider2D other)
     {
-        print("hit collider");
         currentBlock = other.gameObject;
-        print(currentBlock);
         colliderInBlock = true;
     }
 
@@ -37,13 +38,13 @@ public class MineBlock : MonoBehaviour
     private void HitBlock()
     {
         Destroy(currentBlock);
+        dirtSFX.Play();
         colliderInBlock = false;
     }
 
     public void checkIfMineBlockExists()
     {
         destroyBlock();
-        print("hit");
     }
 
 }

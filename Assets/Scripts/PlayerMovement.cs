@@ -7,14 +7,15 @@ public class PlayerMovement : MonoBehaviour
     public CharacterController2D controller;
     public Rigidbody2D myRigidBody;
     public Animator myAnimator;
-
+    public GameObject pickaxeSprite;
     MineBlock mineBlock;
-
     public float runSpeed = 40f;
     [SerializeField] float miningSpeed = 1f;
     float horizontalMove = 0f;
     bool jump = false;
     bool isFlipped = false;
+
+    
 
 
     private void Awake()
@@ -79,12 +80,23 @@ public class PlayerMovement : MonoBehaviour
         {
             myAnimator.SetBool("isSwinging", false);
         }
+
+        if (!Input.GetMouseButton(0))
+        {
+            pickaxeSprite.SetActive(false);
+
+        }
     }
 
-    // Animator function
+    // Animator functions
     public void Hit()
     {
         mineBlock.checkIfMineBlockExists();
+        pickaxeSprite.SetActive(false);
+    }
 
+    public void PickaxeActive()
+    {
+        pickaxeSprite.SetActive(true);
     }
 }
