@@ -64,6 +64,7 @@ public class ProceduralGeneration : MonoBehaviour
                 {
                     GameObject newBlockY = Instantiate(stone, new Vector2(spawnColumn + x, spawnRow - y), Quaternion.identity);
                     newBlockY.transform.parent = chunk.transform;
+                    //newBlockY.AddComponent<>();
                 }
                 else if (cavePoints[spawnColumn + x, -(spawnRow - y)] == 1 && mineralGen == 10)
                 {

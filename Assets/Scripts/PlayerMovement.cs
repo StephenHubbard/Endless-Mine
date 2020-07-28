@@ -33,7 +33,6 @@ public class PlayerMovement : MonoBehaviour
     {
         Move();
         Swing();
-
     }
 
     private void GetInputs()
@@ -44,10 +43,7 @@ public class PlayerMovement : MonoBehaviour
         {
             jump = true;
             myAnimator.SetBool("isJumping", true);
-
         }
-
-        
     }
 
     private void Move()
