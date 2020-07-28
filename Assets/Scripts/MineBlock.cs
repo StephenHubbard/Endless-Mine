@@ -8,9 +8,20 @@ public class MineBlock : MonoBehaviour
 
     private bool colliderInBlock = false;
     private GameObject currentBlock = null;
+    private EquippedInventory equippedInventory;
+
+    public GameObject torch;
+
+
 
     // Audio sources
     public AudioSource dirtSFX;
+
+    private void Awake()
+    {
+        equippedInventory = FindObjectOfType<EquippedInventory>();
+
+    }
 
     private void Update()
     {
@@ -27,11 +38,17 @@ public class MineBlock : MonoBehaviour
         colliderInBlock = false;
     }
 
-    private void destroyBlock()
+    private void detectItem()
     {
-        if (Input.GetMouseButton(0) && colliderInBlock)
+        if (Input.GetMouseButton(0) && colliderInBlock && equippedInventory.activeSlots[0])
         {
             HitBlock();
+        }
+
+        if (Input.GetMouseButton(0) && colliderInBlock && equippedInventory.activeSlots[1])
+        {
+            print("place torch");
+            Instantiate(torch, transform.position, Quaternion.identity);
         }
     }
 
@@ -42,9 +59,9 @@ public class MineBlock : MonoBehaviour
         colliderInBlock = false;
     }
 
-    public void checkIfMineBlockExists()
+    public void CheckActiveItem()
     {
-        destroyBlock();
+        detectItem();
     }
 
 }
