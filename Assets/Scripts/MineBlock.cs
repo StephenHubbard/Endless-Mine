@@ -16,6 +16,7 @@ public class MineBlock : MonoBehaviour
 
     // Audio sources
     public AudioSource dirtSFX;
+    public AudioSource torchSFX;
 
     private void Awake()
     {
@@ -33,7 +34,7 @@ public class MineBlock : MonoBehaviour
         colliderInBlock = true;
     }
 
-    private void OnTriggerExit(Collider other)
+    private void OnTriggerExit2D(Collider2D other)
     {
         colliderInBlock = false;
     }
@@ -47,9 +48,15 @@ public class MineBlock : MonoBehaviour
 
         if (Input.GetMouseButton(0) && colliderInBlock && equippedInventory.activeSlots[1])
         {
-            print("place torch");
-            Instantiate(torch, transform.position, Quaternion.identity);
+            PlaceTorch();
+
         }
+    }
+
+    private void PlaceTorch()
+    {
+        Instantiate(torch, transform.position, Quaternion.identity);
+        torchSFX.Play();
     }
 
     private void HitBlock()

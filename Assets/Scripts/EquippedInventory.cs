@@ -16,9 +16,24 @@ public class EquippedInventory : MonoBehaviour
         activeSlots = new bool[5];
     }
 
+    private void Start()
+    {
+        disableSlots();
+    }
+
+    
+
     private void Update()
     {
         detectActiveSlot();
+    }
+
+    private void disableSlots()
+    {
+        for (int i = 0; i < activeSlots.Length; i++)
+        {
+            activeSlots[i] = false;
+        }
     }
 
     private void detectActiveSlot()
