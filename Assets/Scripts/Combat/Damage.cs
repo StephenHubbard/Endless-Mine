@@ -12,11 +12,12 @@ namespace Netherforge.Combat
 
         private void Awake()
         {
-            health = FindObjectOfType<Health>();
         }
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
+            health = collision.GetComponent<Health>();
+
             if (collision.gameObject.CompareTag("Enemy"))
             {
                 health.TakeDamage(1f, knockback);

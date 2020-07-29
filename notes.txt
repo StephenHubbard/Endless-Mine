@@ -1,10 +1,7 @@
-dialogue system for single npc
 
 selling goods
 
 collecting goods
-
-enemies
 
 inventory
 

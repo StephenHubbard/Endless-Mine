@@ -86,15 +86,15 @@ public class MineBlock : MonoBehaviour
             currentBlock.AddComponent<CircleCollider2D>();
             currentBlock.GetComponent<CircleCollider2D>().radius = 1.5f;
             currentBlock.GetComponent<CircleCollider2D>().isTrigger = true;
-
             GameObject thisBlock = currentBlock;
+            currentBlock = null;
             StartCoroutine(addPickUpDelay(thisBlock));
         }
     }
 
     private IEnumerator addPickUpDelay(GameObject thisBlock)
     {
-        yield return new WaitForSeconds(.7f);
+        yield return new WaitForSeconds(.2f);
         thisBlock.AddComponent<Pickup>();
     }
 

@@ -33,6 +33,11 @@ public class EnemyMovement : MonoBehaviour
         }
     }
 
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        isGrounded = false;
+    }
+
     private IEnumerator changeDirection()
     {
         int randomNum = Random.Range(1, 6);

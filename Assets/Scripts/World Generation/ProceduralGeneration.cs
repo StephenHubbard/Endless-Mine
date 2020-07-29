@@ -7,6 +7,7 @@ public class ProceduralGeneration : MonoBehaviour
     [SerializeField] int chunks;
     [SerializeField] GameObject dirt, stone, iron, diamond, coal;
     [SerializeField] GameObject chunkPrefab;
+    EnemySpawns enemySpawns;
 
     // Cave Variables
     [Range(0, 100)]
@@ -21,20 +22,28 @@ public class ProceduralGeneration : MonoBehaviour
     public int threshold;
     private int numberOfChunks = 0;
 
+    // Enemies
+    public GameObject blueJelly;
+
+
     private void Awake()
     {
         seed = Random.Range(0, 1000000);
-        GenerateCaves();
-        genChunks();
-
+        enemySpawns = FindObjectOfType<EnemySpawns>();
     }
 
     private void Start()
     {
+    }
+
+    public void GenerateWorld()
+    {
+        GenerateCaves();
+        GenChunks();
         SpreadMinerals();
     }
 
-    public void genChunks()
+    public void GenChunks()
     {
         for (int i = 0; i < chunks; i++)
         {
@@ -85,6 +94,15 @@ public class ProceduralGeneration : MonoBehaviour
                 {
                     GameObject newBlockY = Instantiate(dirt, new Vector2(spawnColumn + x, spawnRow - y), Quaternion.identity);
                     newBlockY.transform.parent = chunk.transform;
+                }
+                else
+                {
+                    int spawnEnemyInt = Random.Range(1, 20);
+                    if (spawnEnemyInt == 1)
+                    {
+                        GameObject enemy = Instantiate(blueJelly, new Vector2(spawnColumn + x, spawnRow - y), Quaternion.identity);
+                        enemy.transform.parent = chunk.transform;
+                    }
                 }
             }
         }

@@ -15,9 +15,6 @@ public class PlayerMovement : MonoBehaviour
     bool jump = false;
     bool isFlipped = false;
 
-    
-
-
     private void Awake()
     {
         activeItem = FindObjectOfType<MineBlock>();
