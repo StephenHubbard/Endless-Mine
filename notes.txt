@@ -7,3 +7,4 @@ inventory
 
 world borders
 
+daytime/night time - must sleep at a certain time of night like SDV

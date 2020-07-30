@@ -34,8 +34,12 @@ public class ProceduralGeneration : MonoBehaviour
 
     private void Start()
     {
+        GenerateCaves();
+        GenChunks();
+        SpreadMinerals();
     }
 
+    // Debug button
     public void GenerateWorld()
     {
         GenerateCaves();

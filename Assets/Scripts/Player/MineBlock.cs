@@ -40,6 +40,7 @@ public class MineBlock : MonoBehaviour
     private void OnTriggerExit2D(Collider2D other)
     {
         colliderInBlock = false;
+        currentBlock = null;
     }
 
     private void detectItem()
@@ -64,14 +65,18 @@ public class MineBlock : MonoBehaviour
 
     private void HitBlock()
     {
-        if (!currentBlock.GetComponent<Pickup>())
+        if (currentBlock != null)
         {
-            blockIntoPickup();
-            dirtSFX.Play();
-            colliderInBlock = false;
+            if (!currentBlock.GetComponent<Pickup>())
+            {
+                blockIntoPickup();
+                dirtSFX.Play();
+                colliderInBlock = false;
+            }
         }
     }
 
+    // Call from player movement
     public void CheckActiveItem()
     {
         detectItem();
@@ -87,9 +92,10 @@ public class MineBlock : MonoBehaviour
             currentBlock.GetComponent<CircleCollider2D>().radius = 1.5f;
             currentBlock.GetComponent<CircleCollider2D>().isTrigger = true;
             GameObject thisBlock = currentBlock;
-            currentBlock = null;
             StartCoroutine(addPickUpDelay(thisBlock));
         }
+        currentBlock = null;
+        colliderInBlock = false;
     }
 
     private IEnumerator addPickUpDelay(GameObject thisBlock)

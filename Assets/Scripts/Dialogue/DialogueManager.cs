@@ -9,6 +9,8 @@ public class DialogueManager : MonoBehaviour
     public TextMeshProUGUI dialogueText;
     public Animator animator;
 
+    public GameObject shopWindow;
+
     public Queue<string> sentences;
 
     private void Start()
@@ -54,8 +56,16 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
-    void EndDialogue()
+    public void EndDialogue()
     {
         animator.SetBool("isOpen", false);
+        shopWindow.SetActive(false);
     }
+
+    public void OpenShop()
+    {
+        shopWindow.SetActive(!shopWindow.activeInHierarchy);
+    }
+
+    
 }
