@@ -22,10 +22,6 @@ public class ProceduralGeneration : MonoBehaviour
     public int threshold;
     private int numberOfChunks = 0;
 
-    // Enemies
-    public GameObject blueJelly;
-
-
     private void Awake()
     {
         seed = Random.Range(0, 1000000);
@@ -67,10 +63,16 @@ public class ProceduralGeneration : MonoBehaviour
     {
         int chunkModifier = (numberOfChunks % 3) * 20;
 
+        
+
+
         for (int x = 0; x < 20; x++)
         {
             for (int y = 0; y < 20; y++)
             {
+                // For passing to EnemySpawn.cs
+                Vector2 coordinate = new Vector2(spawnColumn + x, spawnRow - y);
+
                 int mineralGen = Random.Range(0, 101);
 
                 if (cavePoints[spawnColumn + x, -(spawnRow - y)] == 1 && mineralGen < 10)
@@ -101,12 +103,14 @@ public class ProceduralGeneration : MonoBehaviour
                 }
                 else
                 {
-                    int spawnEnemyInt = Random.Range(1, 20);
-                    if (spawnEnemyInt == 1)
-                    {
-                        GameObject enemy = Instantiate(blueJelly, new Vector2(spawnColumn + x, spawnRow - y), Quaternion.identity);
-                        enemy.transform.parent = chunk.transform;
-                    }
+                    //int spawnEnemyInt = Random.Range(1, 20);
+                    //if (spawnEnemyInt == 1)
+                    //{
+                    //    GameObject enemy = Instantiate(blueJelly, new Vector2(spawnColumn + x, spawnRow - y), Quaternion.identity);
+                    //    enemy.transform.parent = chunk.transform;
+                    //}
+
+                    enemySpawns.spawnEnemies(coordinate, chunk);
                 }
             }
         }

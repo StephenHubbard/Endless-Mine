@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class EquippedInventory : MonoBehaviour
 {
     public GameObject equippedItem;
+    public GameObject inventoryWindow;
 
     public GameObject[] slots;
     public bool[] activeSlots;
@@ -20,7 +21,6 @@ public class EquippedInventory : MonoBehaviour
     {
         disableSlots();
         DefaultStartingSlot();
-
     }
 
     private void DefaultStartingSlot()
@@ -33,6 +33,16 @@ public class EquippedInventory : MonoBehaviour
     private void Update()
     {
         detectActiveSlot();
+        ToggleInventory();
+    }
+
+    private void ToggleInventory()
+    {
+        if (Input.GetButtonDown("Inventory"))
+        {
+            inventoryWindow.SetActive(!inventoryWindow.activeInHierarchy);
+        }
+
     }
 
     private void disableSlots()

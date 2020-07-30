@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Netherforge.Combat;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,14 +11,29 @@ public class EnemyMovement : MonoBehaviour
 
     public bool isGrounded = false;
 
+    PlayerMovement player;
+
+    [SerializeField] Vector2 knockback = new Vector2(1f, 1f);
+    Health health;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        player = FindObjectOfType<PlayerMovement>();
+
     }
 
     void Start()
     {
         StartCoroutine(changeDirection());
+        StartCoroutine(Jump());
+    }
+
+    private void OnEnable()
+    {
+        StopAllCoroutines();
+        StartCoroutine(changeDirection());
+        StartCoroutine(Jump());
     }
 
     void Update()
@@ -31,11 +47,35 @@ public class EnemyMovement : MonoBehaviour
         {
             isGrounded = true;
         }
+
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            health = collision.gameObject.GetComponent<Health>();
+            health.TakeDamage(1f, knockback);
+        }
     }
 
     private void OnCollisionExit2D(Collision2D collision)
     {
         isGrounded = false;
+    }
+
+    private IEnumerator Jump()
+    {
+        int randomNum = Random.Range(1, 3);
+        yield return new WaitForSeconds(randomNum);
+
+        if (isFacingRight())
+        {
+            Vector2 jump = new Vector2(1.5f, 5f);
+            rb.velocity = jump;
+        }
+        else if (!isFacingRight())
+        {
+            Vector2 jump = new Vector2(-1.5f, 5f);
+            rb.velocity = jump;
+        }
+        StartCoroutine(Jump());
     }
 
     private IEnumerator changeDirection()
@@ -63,4 +103,6 @@ public class EnemyMovement : MonoBehaviour
     {
         return transform.localScale.x > 0;
     }
+
+    
 }

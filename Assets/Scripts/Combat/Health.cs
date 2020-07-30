@@ -23,8 +23,12 @@ namespace Netherforge.Combat
 
         public void TakeDamage(float damage, Vector2 knockback)
         {
-            enemy = GetComponent<EnemyMovement>();
-            enemy.isGrounded = false;
+            if (gameObject.CompareTag("Enemy"))
+            {
+                enemy = GetComponent<EnemyMovement>();
+                enemy.isGrounded = false;
+            }
+
             Vector3 heading = player.transform.position - transform.position;
             dirNum = AngleDir(transform.forward, heading, transform.up);
             if (dirNum < 0)
