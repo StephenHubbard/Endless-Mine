@@ -8,6 +8,8 @@ public class InventorySlot : MonoBehaviour
 {
     public int amountInSlot = 0;
     TextMeshProUGUI amountText;
+    public bool isOccupied = false;
+
 
     private void Awake()
     {
@@ -28,4 +30,6 @@ public class InventorySlot : MonoBehaviour
     {
         amountText.text = amountInSlot.ToString();
     }
+
+    
 }

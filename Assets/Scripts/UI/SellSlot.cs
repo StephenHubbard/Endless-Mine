@@ -18,7 +18,7 @@ public class SellSlot : MonoBehaviour, IPointerClickHandler
     {
         if (eventData.button == PointerEventData.InputButton.Right)
         {
-            inventorySlot = FindObjectOfType<InventorySlot>();
+            inventorySlot = GetComponent<InventorySlot>();
             if (inventorySlot.amountInSlot >= 1 && shopWindow.activeInHierarchy)
             {
                 inventorySlot.amountInSlot -= 1;
