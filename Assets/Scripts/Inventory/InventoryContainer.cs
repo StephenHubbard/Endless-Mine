@@ -7,32 +7,19 @@ public class InventoryContainer : MonoBehaviour
 {
     public Sprite dirtSprite;
 
-    public void addClassToSlot(string thisString, GameObject thisSlot)
+    public void addClassToSlot(BlockInfo blockInfo, GameObject thisSlot)
     {
-        if (thisString == "dirt")
+        thisSlot.GetComponent<InventorySlot>().isOccupied = true;
+        thisSlot.GetComponent<InventorySlot>().isEmpty();
+
+        if (!thisSlot.GetComponent<BlockInfo>())
         {
-            if (thisSlot != null)
-            {
-                if (!this.GetComponent<Dirt>())
-                {
-                    thisSlot.AddComponent<Dirt>();
-                }
-                thisSlot.GetComponent<InventorySlot>().amountInSlot += 1;
-                thisSlot.GetComponent<InventorySlot>().updateAmountInSlot();
-                Image thisImage = thisSlot.transform.GetChild(0).gameObject.GetComponent<Image>();
-                thisImage.sprite = dirtSprite;
-
-            }
-            else if (thisSlot = null)
-            {
-
-                // TODO only replace sprite if null
-                thisSlot.AddComponent<Dirt>();
-                Image thisImage = thisSlot.transform.GetChild(0).gameObject.GetComponent<Image>();
-                thisImage.sprite = dirtSprite;
-                thisSlot.GetComponent<InventorySlot>().amountInSlot += 1;
-                thisSlot.GetComponent<InventorySlot>().updateAmountInSlot();
-            }
+            thisSlot.AddComponent<BlockInfo>();
+            thisSlot.GetComponent<BlockInfo>().block = blockInfo.block;
+            Image thisImage = thisSlot.transform.GetChild(0).gameObject.GetComponent<Image>();
+            thisImage.sprite = blockInfo.block.sprite;
         }
+        thisSlot.GetComponent<InventorySlot>().amountInSlot += 1;
+        thisSlot.GetComponent<InventorySlot>().updateAmountInSlot();
     }
 }

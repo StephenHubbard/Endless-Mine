@@ -9,6 +9,7 @@ public class InventorySlot : MonoBehaviour
     public int amountInSlot = 0;
     TextMeshProUGUI amountText;
     public bool isOccupied = false;
+    public ScriptableObject thisBlock;
 
 
     private void Awake()
@@ -19,6 +20,25 @@ public class InventorySlot : MonoBehaviour
     void Start()
     {
         updateAmountInSlot();
+        isEmpty();
+    }
+
+    public void isEmpty()
+    {
+        if (!isOccupied)
+        {
+            foreach (Transform child in gameObject.transform)
+            {
+                child.gameObject.SetActive(false);
+            }
+        }
+        else
+        {
+            foreach (Transform child in gameObject.transform)
+            {
+                child.gameObject.SetActive(true);
+            }
+        }
     }
 
     void Update()
@@ -29,6 +49,11 @@ public class InventorySlot : MonoBehaviour
     public void updateAmountInSlot()
     {
         amountText.text = amountInSlot.ToString();
+        if (amountInSlot == 0)
+        {
+            isOccupied = false;
+            isEmpty();
+        }
     }
 
     

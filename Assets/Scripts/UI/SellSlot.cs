@@ -23,7 +23,9 @@ public class SellSlot : MonoBehaviour, IPointerClickHandler
             {
                 inventorySlot.amountInSlot -= 1;
                 inventorySlot.updateAmountInSlot();
-                currentGold.currentGold += 5;
+
+                int itemGoldValue = gameObject.GetComponent<BlockInfo>().block.goldValue;
+                currentGold.currentGold += itemGoldValue;
                 currentGold.updateGoldAmount();
             }
         }

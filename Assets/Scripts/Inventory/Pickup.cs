@@ -14,45 +14,58 @@ public class Pickup : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
+
+
         if (collision.gameObject.tag == "Player" && pickedUp == false)
         {
+            BlockInfo blockInfo = gameObject.GetComponent<BlockInfo>();
             pickedUp = true;
 
-            if (gameObject.GetComponent<Dirt>())
+            if (blockInfo)
             {
-                GameObject thisSlot = null;
-
-                foreach (Transform child in inventoryContainer.transform)
-                {
-                    if (child.gameObject.GetComponent<Dirt>())
-                    {
-                        thisSlot = child.gameObject;
-                        break;
-                    }
-                    else
-                    {
-                        continue;
-                    }
-                }
-                if (thisSlot == null)
-                {
-                    foreach (Transform child in inventoryContainer.transform)
-                    {
-                        if (child.gameObject.GetComponent<InventorySlot>().isOccupied == false)
-                        {
-                            thisSlot = child.gameObject;
-                            break;
-                        }
-                        else
-                        {
-                            continue;
-                        }
-                    }
-                }
-                inventoryContainer.addClassToSlot("dirt", thisSlot);
+                addToInventory(blockInfo);
             }
+
+            
 
             Destroy(gameObject);
         }
+    }
+
+    private void addToInventory(BlockInfo blockInfo)
+    {
+        GameObject thisSlot = null;
+
+        foreach (Transform child in inventoryContainer.transform)
+        {
+            if (child.gameObject.GetComponent<BlockInfo>() != null)
+            {
+                if (child.gameObject.GetComponent<BlockInfo>().block == blockInfo.block)
+                {
+                    thisSlot = child.gameObject;
+                    break;
+                }
+                else
+                {
+                    continue;
+                }
+            }
+        }
+        if (thisSlot == null)
+        {
+            foreach (Transform child in inventoryContainer.transform)
+            {
+                if (child.gameObject.GetComponent<InventorySlot>().isOccupied == false)
+                {
+                    thisSlot = child.gameObject;
+                    break;
+                }
+                else
+                {
+                    continue;
+                }
+            }
+        }
+        inventoryContainer.addClassToSlot(blockInfo, thisSlot);
     }
 }

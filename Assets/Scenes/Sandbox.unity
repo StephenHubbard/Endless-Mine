@@ -312,7 +312,6 @@ GameObject:
   - component: {fileID: 36130175}
   - component: {fileID: 36130174}
   - component: {fileID: 36130173}
-  - component: {fileID: 36130172}
   m_Layer: 5
   m_Name: Inventory Slot (7)
   m_TagString: Untagged
@@ -341,18 +340,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 60}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &36130172
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 36130170}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd9c87e5206492b42a01d0ad1575451d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &36130173
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -366,6 +353,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   amountInSlot: 0
+  isOccupied: 0
+  thisBlock: {fileID: 0}
 --- !u!114 &36130174
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1492,7 +1481,6 @@ GameObject:
   - component: {fileID: 160157911}
   - component: {fileID: 160157910}
   - component: {fileID: 160157909}
-  - component: {fileID: 160157908}
   m_Layer: 5
   m_Name: Inventory Slot (9)
   m_TagString: Untagged
@@ -1521,18 +1509,6 @@ RectTransform:
   m_AnchoredPosition: {x: 140, y: 60}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &160157908
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 160157906}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd9c87e5206492b42a01d0ad1575451d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &160157909
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1546,6 +1522,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   amountInSlot: 0
+  isOccupied: 0
+  thisBlock: {fileID: 0}
 --- !u!114 &160157910
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1707,7 +1685,6 @@ GameObject:
   - component: {fileID: 190017223}
   - component: {fileID: 190017222}
   - component: {fileID: 190017221}
-  - component: {fileID: 190017220}
   m_Layer: 5
   m_Name: Inventory Slot (5)
   m_TagString: Untagged
@@ -1736,18 +1713,6 @@ RectTransform:
   m_AnchoredPosition: {x: -140, y: 60}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &190017220
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 190017218}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd9c87e5206492b42a01d0ad1575451d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &190017221
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1761,6 +1726,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   amountInSlot: 0
+  isOccupied: 0
+  thisBlock: {fileID: 0}
 --- !u!114 &190017222
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2623,7 +2590,6 @@ GameObject:
   - component: {fileID: 273182388}
   - component: {fileID: 273182387}
   - component: {fileID: 273182386}
-  - component: {fileID: 273182385}
   m_Layer: 5
   m_Name: Inventory Slot (1)
   m_TagString: Untagged
@@ -2652,18 +2618,6 @@ RectTransform:
   m_AnchoredPosition: {x: -70, y: 130}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &273182385
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 273182383}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd9c87e5206492b42a01d0ad1575451d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &273182386
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2677,6 +2631,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   amountInSlot: 0
+  isOccupied: 0
+  thisBlock: {fileID: 0}
 --- !u!114 &273182387
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3967,7 +3923,6 @@ GameObject:
   - component: {fileID: 458694421}
   - component: {fileID: 458694420}
   - component: {fileID: 458694419}
-  - component: {fileID: 458694418}
   m_Layer: 5
   m_Name: Inventory Slot (22)
   m_TagString: Untagged
@@ -3996,18 +3951,6 @@ RectTransform:
   m_AnchoredPosition: {x: -70, y: -150}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &458694418
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 458694416}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd9c87e5206492b42a01d0ad1575451d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &458694419
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4021,6 +3964,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   amountInSlot: 0
+  isOccupied: 0
+  thisBlock: {fileID: 0}
 --- !u!114 &458694420
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4506,7 +4451,6 @@ GameObject:
   - component: {fileID: 540806290}
   - component: {fileID: 540806289}
   - component: {fileID: 540806288}
-  - component: {fileID: 540806287}
   m_Layer: 5
   m_Name: Inventory Slot (11)
   m_TagString: Untagged
@@ -4535,18 +4479,6 @@ RectTransform:
   m_AnchoredPosition: {x: -70, y: -10}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &540806287
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 540806285}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd9c87e5206492b42a01d0ad1575451d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &540806288
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4560,6 +4492,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   amountInSlot: 0
+  isOccupied: 0
+  thisBlock: {fileID: 0}
 --- !u!114 &540806289
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6017,7 +5951,6 @@ GameObject:
   - component: {fileID: 675876085}
   - component: {fileID: 675876084}
   - component: {fileID: 675876083}
-  - component: {fileID: 675876082}
   m_Layer: 5
   m_Name: Inventory Slot (13)
   m_TagString: Untagged
@@ -6046,18 +5979,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -10}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &675876082
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 675876080}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd9c87e5206492b42a01d0ad1575451d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &675876083
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6071,6 +5992,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   amountInSlot: 0
+  isOccupied: 0
+  thisBlock: {fileID: 0}
 --- !u!114 &675876084
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7224,7 +7147,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 876832998}
   m_Enabled: 1
-  m_Alpha: 1
+  m_Alpha: 0
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
@@ -7971,7 +7894,6 @@ GameObject:
   - component: {fileID: 945024505}
   - component: {fileID: 945024504}
   - component: {fileID: 945024503}
-  - component: {fileID: 945024502}
   m_Layer: 5
   m_Name: Inventory Slot (21)
   m_TagString: Untagged
@@ -8000,18 +7922,6 @@ RectTransform:
   m_AnchoredPosition: {x: 70, y: -150}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &945024502
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 945024500}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd9c87e5206492b42a01d0ad1575451d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &945024503
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8025,6 +7935,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   amountInSlot: 0
+  isOccupied: 0
+  thisBlock: {fileID: 0}
 --- !u!114 &945024504
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9328,7 +9240,6 @@ GameObject:
   - component: {fileID: 1118028464}
   - component: {fileID: 1118028463}
   - component: {fileID: 1118028462}
-  - component: {fileID: 1118028461}
   m_Layer: 5
   m_Name: Inventory Slot (23)
   m_TagString: Untagged
@@ -9357,18 +9268,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -150}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1118028461
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1118028459}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd9c87e5206492b42a01d0ad1575451d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1118028462
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9382,6 +9281,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   amountInSlot: 0
+  isOccupied: 0
+  thisBlock: {fileID: 0}
 --- !u!114 &1118028463
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9800,7 +9701,6 @@ GameObject:
   - component: {fileID: 1128448403}
   - component: {fileID: 1128448402}
   - component: {fileID: 1128448401}
-  - component: {fileID: 1128448400}
   m_Layer: 5
   m_Name: Inventory Slot (10)
   m_TagString: Untagged
@@ -9829,18 +9729,6 @@ RectTransform:
   m_AnchoredPosition: {x: -140, y: -10}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1128448400
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1128448398}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd9c87e5206492b42a01d0ad1575451d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1128448401
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9854,6 +9742,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   amountInSlot: 0
+  isOccupied: 0
+  thisBlock: {fileID: 0}
 --- !u!114 &1128448402
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10201,7 +10091,6 @@ GameObject:
   - component: {fileID: 1220050272}
   - component: {fileID: 1220050271}
   - component: {fileID: 1220050270}
-  - component: {fileID: 1220050269}
   m_Layer: 5
   m_Name: Inventory Slot (16)
   m_TagString: Untagged
@@ -10230,18 +10119,6 @@ RectTransform:
   m_AnchoredPosition: {x: 70, y: -80}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1220050269
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1220050267}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd9c87e5206492b42a01d0ad1575451d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1220050270
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10255,6 +10132,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   amountInSlot: 0
+  isOccupied: 0
+  thisBlock: {fileID: 0}
 --- !u!114 &1220050271
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10426,7 +10305,6 @@ GameObject:
   - component: {fileID: 1235182557}
   - component: {fileID: 1235182556}
   - component: {fileID: 1235182555}
-  - component: {fileID: 1235182554}
   m_Layer: 5
   m_Name: Inventory Slot (2)
   m_TagString: Untagged
@@ -10455,18 +10333,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 130}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1235182554
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1235182552}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd9c87e5206492b42a01d0ad1575451d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1235182555
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10480,6 +10346,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   amountInSlot: 0
+  isOccupied: 0
+  thisBlock: {fileID: 0}
 --- !u!114 &1235182556
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10678,7 +10546,6 @@ GameObject:
   - component: {fileID: 1250932800}
   - component: {fileID: 1250932799}
   - component: {fileID: 1250932798}
-  - component: {fileID: 1250932797}
   m_Layer: 5
   m_Name: Inventory Slot (17)
   m_TagString: Untagged
@@ -10707,18 +10574,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -80}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1250932797
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1250932795}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd9c87e5206492b42a01d0ad1575451d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1250932798
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10732,6 +10587,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   amountInSlot: 0
+  isOccupied: 0
+  thisBlock: {fileID: 0}
 --- !u!114 &1250932799
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11742,7 +11599,6 @@ GameObject:
   - component: {fileID: 1338660526}
   - component: {fileID: 1338660525}
   - component: {fileID: 1338660524}
-  - component: {fileID: 1338660523}
   m_Layer: 5
   m_Name: Inventory Slot (4)
   m_TagString: Untagged
@@ -11771,18 +11627,6 @@ RectTransform:
   m_AnchoredPosition: {x: 140, y: 130}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1338660523
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1338660521}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd9c87e5206492b42a01d0ad1575451d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1338660524
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11796,6 +11640,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   amountInSlot: 0
+  isOccupied: 0
+  thisBlock: {fileID: 0}
 --- !u!114 &1338660525
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12681,7 +12527,6 @@ GameObject:
   - component: {fileID: 1416875043}
   - component: {fileID: 1416875042}
   - component: {fileID: 1416875041}
-  - component: {fileID: 1416875040}
   m_Layer: 5
   m_Name: Inventory Slot (3)
   m_TagString: Untagged
@@ -12710,18 +12555,6 @@ RectTransform:
   m_AnchoredPosition: {x: 70, y: 130}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1416875040
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1416875038}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd9c87e5206492b42a01d0ad1575451d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1416875041
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12735,6 +12568,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   amountInSlot: 0
+  isOccupied: 0
+  thisBlock: {fileID: 0}
 --- !u!114 &1416875042
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14653,7 +14488,6 @@ GameObject:
   - component: {fileID: 1587598560}
   - component: {fileID: 1587598559}
   - component: {fileID: 1587598558}
-  - component: {fileID: 1587598557}
   m_Layer: 5
   m_Name: Inventory Slot (24)
   m_TagString: Untagged
@@ -14682,18 +14516,6 @@ RectTransform:
   m_AnchoredPosition: {x: 140, y: -150}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1587598557
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1587598555}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd9c87e5206492b42a01d0ad1575451d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1587598558
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14707,6 +14529,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   amountInSlot: 0
+  isOccupied: 0
+  thisBlock: {fileID: 0}
 --- !u!114 &1587598559
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15058,7 +14882,6 @@ GameObject:
   - component: {fileID: 1609781975}
   - component: {fileID: 1609781974}
   - component: {fileID: 1609781973}
-  - component: {fileID: 1609781972}
   m_Layer: 5
   m_Name: Inventory Slot (8)
   m_TagString: Untagged
@@ -15087,18 +14910,6 @@ RectTransform:
   m_AnchoredPosition: {x: 70, y: 60}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1609781972
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1609781970}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd9c87e5206492b42a01d0ad1575451d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1609781973
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15112,6 +14923,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   amountInSlot: 0
+  isOccupied: 0
+  thisBlock: {fileID: 0}
 --- !u!114 &1609781974
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16202,7 +16015,6 @@ GameObject:
   - component: {fileID: 1791110366}
   - component: {fileID: 1791110365}
   - component: {fileID: 1791110364}
-  - component: {fileID: 1791110363}
   m_Layer: 5
   m_Name: Inventory Slot (18)
   m_TagString: Untagged
@@ -16231,18 +16043,6 @@ RectTransform:
   m_AnchoredPosition: {x: -70, y: -80}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1791110363
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1791110361}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd9c87e5206492b42a01d0ad1575451d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1791110364
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16256,6 +16056,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   amountInSlot: 0
+  isOccupied: 0
+  thisBlock: {fileID: 0}
 --- !u!114 &1791110365
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16640,7 +16442,6 @@ GameObject:
   - component: {fileID: 1819631282}
   - component: {fileID: 1819631281}
   - component: {fileID: 1819631280}
-  - component: {fileID: 1819631279}
   m_Layer: 5
   m_Name: Inventory Slot (20)
   m_TagString: Untagged
@@ -16669,18 +16470,6 @@ RectTransform:
   m_AnchoredPosition: {x: -140, y: -150}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1819631279
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1819631277}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd9c87e5206492b42a01d0ad1575451d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1819631280
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16694,6 +16483,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   amountInSlot: 0
+  isOccupied: 0
+  thisBlock: {fileID: 0}
 --- !u!114 &1819631281
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16774,7 +16565,6 @@ GameObject:
   - component: {fileID: 1829197299}
   - component: {fileID: 1829197298}
   - component: {fileID: 1829197297}
-  - component: {fileID: 1829197296}
   m_Layer: 5
   m_Name: Inventory Slot (6)
   m_TagString: Untagged
@@ -16803,18 +16593,6 @@ RectTransform:
   m_AnchoredPosition: {x: -70, y: 60}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1829197296
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1829197294}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd9c87e5206492b42a01d0ad1575451d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1829197297
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16828,6 +16606,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   amountInSlot: 0
+  isOccupied: 0
+  thisBlock: {fileID: 0}
 --- !u!114 &1829197298
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17813,7 +17593,6 @@ GameObject:
   - component: {fileID: 1954122190}
   - component: {fileID: 1954122189}
   - component: {fileID: 1954122188}
-  - component: {fileID: 1954122187}
   m_Layer: 5
   m_Name: Inventory Slot (14)
   m_TagString: Untagged
@@ -17842,18 +17621,6 @@ RectTransform:
   m_AnchoredPosition: {x: 140, y: -10}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1954122187
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1954122185}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd9c87e5206492b42a01d0ad1575451d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1954122188
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17867,6 +17634,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   amountInSlot: 0
+  isOccupied: 0
+  thisBlock: {fileID: 0}
 --- !u!114 &1954122189
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17947,7 +17716,6 @@ GameObject:
   - component: {fileID: 1955633923}
   - component: {fileID: 1955633922}
   - component: {fileID: 1955633921}
-  - component: {fileID: 1955633920}
   m_Layer: 5
   m_Name: Inventory Slot (19)
   m_TagString: Untagged
@@ -17976,18 +17744,6 @@ RectTransform:
   m_AnchoredPosition: {x: 140, y: -80}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1955633920
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1955633918}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd9c87e5206492b42a01d0ad1575451d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1955633921
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18001,6 +17757,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   amountInSlot: 0
+  isOccupied: 0
+  thisBlock: {fileID: 0}
 --- !u!114 &1955633922
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18474,7 +18232,6 @@ GameObject:
   - component: {fileID: 2013551590}
   - component: {fileID: 2013551593}
   - component: {fileID: 2013551594}
-  - component: {fileID: 2013551595}
   m_Layer: 5
   m_Name: Inventory Slot
   m_TagString: Untagged
@@ -18582,18 +18339,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   amountInSlot: 0
---- !u!114 &2013551595
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2013551588}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd9c87e5206492b42a01d0ad1575451d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  isOccupied: 0
+  thisBlock: {fileID: 0}
 --- !u!1 &2014491333
 GameObject:
   m_ObjectHideFlags: 0
@@ -18725,7 +18472,6 @@ GameObject:
   - component: {fileID: 2018284952}
   - component: {fileID: 2018284951}
   - component: {fileID: 2018284950}
-  - component: {fileID: 2018284949}
   m_Layer: 5
   m_Name: Inventory Slot (12)
   m_TagString: Untagged
@@ -18754,18 +18500,6 @@ RectTransform:
   m_AnchoredPosition: {x: 70, y: -10}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &2018284949
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2018284947}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd9c87e5206492b42a01d0ad1575451d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &2018284950
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18779,6 +18513,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   amountInSlot: 0
+  isOccupied: 0
+  thisBlock: {fileID: 0}
 --- !u!114 &2018284951
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20214,7 +19950,6 @@ GameObject:
   - component: {fileID: 2123872228}
   - component: {fileID: 2123872227}
   - component: {fileID: 2123872226}
-  - component: {fileID: 2123872225}
   m_Layer: 5
   m_Name: Inventory Slot (15)
   m_TagString: Untagged
@@ -20243,18 +19978,6 @@ RectTransform:
   m_AnchoredPosition: {x: -140, y: -80}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &2123872225
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2123872223}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd9c87e5206492b42a01d0ad1575451d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &2123872226
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20268,6 +19991,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   amountInSlot: 0
+  isOccupied: 0
+  thisBlock: {fileID: 0}
 --- !u!114 &2123872227
 MonoBehaviour:
   m_ObjectHideFlags: 0
