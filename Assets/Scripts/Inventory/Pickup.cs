@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class Pickup : MonoBehaviour
 {
-    BackpackInventory backpackInventory;
+    InventorySlot inventorySlot;
     private bool pickedUp = false;
 
     private void Awake()
     {
-        backpackInventory = FindObjectOfType<BackpackInventory>();
+        inventorySlot = FindObjectOfType<InventorySlot>();
     }
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -21,8 +21,8 @@ public class Pickup : MonoBehaviour
 
             if (gameObject.GetComponent<Dirt>())
             {
-                backpackInventory.amountOfDirt += 1;
-                backpackInventory.updateAmountInSlot();
+                inventorySlot.amountInSlot += 1;
+                inventorySlot.updateAmountInSlot();
             }
 
             Destroy(gameObject);

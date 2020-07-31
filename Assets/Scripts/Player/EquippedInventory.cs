@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class EquippedInventory : MonoBehaviour
 {
     public GameObject equippedItem;
-    public GameObject inventoryWindow;
+    public GameObject inventoryContainer;
 
     public GameObject[] slots;
     public bool[] activeSlots;
@@ -40,7 +40,20 @@ public class EquippedInventory : MonoBehaviour
     {
         if (Input.GetButtonDown("Inventory"))
         {
-            inventoryWindow.SetActive(!inventoryWindow.activeInHierarchy);
+            print("hit1");
+            CanvasGroup canvasGroup = inventoryContainer.GetComponent<CanvasGroup>();
+            if (canvasGroup.alpha == 0)
+            {
+                print("hit2");
+
+                canvasGroup.alpha = 1;
+            }
+            else
+            {
+                print("hit3");
+
+                canvasGroup.alpha = 0;
+            }
         }
 
     }

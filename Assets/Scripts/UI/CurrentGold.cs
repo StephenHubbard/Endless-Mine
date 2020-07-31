@@ -4,15 +4,16 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class BackpackInventory : MonoBehaviour
+public class CurrentGold : MonoBehaviour
 {
-    public TextMeshProUGUI amountInSlot1;
-    public int amountOfDirt = 0;
+
+    public TextMeshProUGUI currentGoldText;
+    public int currentGold = 0;
 
     // Start is called before the first frame update
     void Start()
     {
-        updateAmountInSlot();
+        updateGoldAmount();
     }
 
     // Update is called once per frame
@@ -21,8 +22,8 @@ public class BackpackInventory : MonoBehaviour
         
     }
 
-    public void updateAmountInSlot()
+    public void updateGoldAmount()
     {
-        amountInSlot1.text = amountOfDirt.ToString();
+        currentGoldText.text = currentGold.ToString();
     }
 }

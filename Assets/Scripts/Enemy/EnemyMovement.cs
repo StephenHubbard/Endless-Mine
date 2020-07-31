@@ -62,7 +62,7 @@ public class EnemyMovement : MonoBehaviour
 
     private IEnumerator Jump()
     {
-        int randomNum = Random.Range(1, 3);
+        int randomNum = Random.Range(2, 6);
         yield return new WaitForSeconds(randomNum);
 
         if (isFacingRight())

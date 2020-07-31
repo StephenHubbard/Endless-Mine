@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour
 {
+    public GameObject dialogueContainer;
     public TextMeshProUGUI dialogueText;
     public Animator animator;
 
@@ -20,6 +21,7 @@ public class DialogueManager : MonoBehaviour
 
     public void StartDialogue(Dialogue dialogue)
     {
+        dialogueContainer.SetActive(true);
         animator.SetBool("isOpen", true);
 
         sentences.Clear();
