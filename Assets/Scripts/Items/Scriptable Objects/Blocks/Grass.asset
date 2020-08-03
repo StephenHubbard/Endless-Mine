@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: be4f70a5975d94444a933cc7397e4a59, type: 3}
-  m_Name: Stone
+  m_Name: Grass
   m_EditorClassIdentifier: 
-  name: Stone
-  sprite: {fileID: 21300084, guid: 261212b977f594d5dbc48631a5c1295c, type: 3}
-  goldValue: 10
+  name: Grass
+  sprite: {fileID: 21300002, guid: 261212b977f594d5dbc48631a5c1295c, type: 3}
+  goldValue: 1

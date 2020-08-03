@@ -9,6 +9,7 @@ public class DialogueManager : MonoBehaviour
     public GameObject dialogueContainer;
     public TextMeshProUGUI dialogueText;
     public Animator animator;
+    public GameObject inventoryContainer;
 
     public GameObject shopWindow;
 
@@ -62,12 +63,14 @@ public class DialogueManager : MonoBehaviour
     {
         animator.SetBool("isOpen", false);
         shopWindow.SetActive(false);
+        inventoryContainer.GetComponent<CanvasGroup>().alpha = 0;
     }
 
     public void OpenShop()
     {
         shopWindow.SetActive(!shopWindow.activeInHierarchy);
+        inventoryContainer.GetComponent<CanvasGroup>().alpha = 1;
     }
 
-    
+
 }

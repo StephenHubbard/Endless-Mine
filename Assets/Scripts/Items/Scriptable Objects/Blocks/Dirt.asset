@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: be4f70a5975d94444a933cc7397e4a59, type: 3}
-  m_Name: Diamond
+  m_Name: Dirt
   m_EditorClassIdentifier: 
-  name: Diamond
-  sprite: {fileID: 21300100, guid: 261212b977f594d5dbc48631a5c1295c, type: 3}
-  goldValue: 50
+  name: Dirt
+  sprite: {fileID: 21300006, guid: 261212b977f594d5dbc48631a5c1295c, type: 3}
+  goldValue: 1

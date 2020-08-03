@@ -1,10 +1,10 @@
-
-selling goods
-
-collecting goods
-
-inventory
-
-world borders
-
 daytime/night time - must sleep at a certain time of night like SDV
+
+bug(s) on player death
+
+start thinking of scalable difficulty
+
+drag and drop inventory / equipped inventory. 
+
+UI cursor(s) changes 
+

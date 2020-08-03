@@ -10,14 +10,21 @@ public class PlayerMovement : MonoBehaviour
     public GameObject equippedItemSprite;
     MineBlock activeItem;
     public float runSpeed = 40f;
+    public float climbSpeed = 40f;
     [SerializeField] float miningSpeed = 1f;
     float horizontalMove = 0f;
     bool jump = false;
     bool isFlipped = false;
+    CircleCollider2D myFeet;
+    float gravityScaleAtStart;
+
 
     private void Awake()
     {
         activeItem = FindObjectOfType<MineBlock>();
+        myFeet = GetComponent<CircleCollider2D>();
+        gravityScaleAtStart = myRigidBody.gravityScale;
+
     }
 
     // Update is called once per frame
@@ -30,6 +37,7 @@ public class PlayerMovement : MonoBehaviour
     {
         Move();
         Swing();
+        Climb();
     }
 
     private void GetInputs()
@@ -59,7 +67,25 @@ public class PlayerMovement : MonoBehaviour
         {
             myAnimator.SetBool("isJumping", true);
         }
+    }
 
+    private void Climb()
+    {
+        if (!myFeet.IsTouchingLayers(LayerMask.GetMask("Ladder")))
+        {
+            myRigidBody.gravityScale = gravityScaleAtStart;
+            if (!controller.m_Grounded)
+            {
+                myAnimator.SetBool("isJumping", false);
+            }
+            return;
+        }
+
+        myAnimator.SetBool("isJumping", true);
+        float controlThrow = Input.GetAxisRaw("Vertical");
+        Vector2 climbVelocity = new Vector2(myRigidBody.velocity.x, controlThrow * climbSpeed);
+        myRigidBody.velocity = climbVelocity;
+        myRigidBody.gravityScale = 0f;
     }
 
     public void Swing()

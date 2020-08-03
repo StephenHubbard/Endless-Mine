@@ -18,7 +18,7 @@ TagManager:
   - 
   - Player
   - Camera Confiner
-  - 
+  - Ladder
   - 
   - 
   - 
@@ -43,6 +43,9 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Ladder
+    uniqueID: 1268415073
     locked: 0
   - name: Player
     uniqueID: 986669903

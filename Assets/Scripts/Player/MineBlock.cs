@@ -11,6 +11,8 @@ public class MineBlock : MonoBehaviour
     private EquippedInventory equippedInventory;
 
     public GameObject torch;
+    public GameObject ladder;
+
 
 
 
@@ -53,13 +55,26 @@ public class MineBlock : MonoBehaviour
         if (Input.GetMouseButton(0) && colliderInBlock && equippedInventory.activeSlots[1])
         {
             PlaceTorch();
-
         }
+
+        if (Input.GetMouseButton(0) && !colliderInBlock && equippedInventory.activeSlots[3])
+        {
+            PlaceLadder();
+        }
+    }
+
+    private void PlaceLadder()
+    {
+        int roundedX = Mathf.RoundToInt(transform.position.x);
+        int roundedY = Mathf.RoundToInt(transform.position.y);
+        Vector2 roundedVector2 = new Vector2(roundedX, roundedY);
+        Instantiate(ladder, roundedVector2, Quaternion.identity);
+        torchSFX.Play();
     }
 
     private void PlaceTorch()
     {
-        Instantiate(torch, transform.position, Quaternion.identity);
+        Instantiate(torch, currentBlock.transform.position, Quaternion.identity);
         torchSFX.Play();
     }
 
@@ -89,8 +104,9 @@ public class MineBlock : MonoBehaviour
         {
             currentBlock.AddComponent<Rigidbody2D>();
             currentBlock.AddComponent<CircleCollider2D>();
-            currentBlock.GetComponent<CircleCollider2D>().radius = 1.5f;
+            currentBlock.GetComponent<CircleCollider2D>().radius = 1.2f;
             currentBlock.GetComponent<CircleCollider2D>().isTrigger = true;
+            
             GameObject thisBlock = currentBlock;
             StartCoroutine(addPickUpDelay(thisBlock));
         }

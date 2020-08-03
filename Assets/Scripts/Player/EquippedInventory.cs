@@ -127,6 +127,8 @@ public class EquippedInventory : MonoBehaviour
                 activeSlots[i] = false;
             }
             activeSlots[3] = true;
+            equippedItem.GetComponent<SpriteRenderer>().sprite = sprites[3];
+
         }
 
         if (Input.GetButtonDown("5"))
