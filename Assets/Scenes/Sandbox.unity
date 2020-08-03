@@ -6158,7 +6158,7 @@ GameObject:
   - component: {fileID: 640863354}
   - component: {fileID: 640863355}
   m_Layer: 0
-  m_Name: Global Light Inactive
+  m_Name: Global Light Inactive (debugging)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6840,7 +6840,7 @@ GameObject:
   - component: {fileID: 698429314}
   - component: {fileID: 698429313}
   m_Layer: 5
-  m_Name: TimeOfDay
+  m_Name: Time Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6862,7 +6862,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 24.468, y: -59}
+  m_AnchoredPosition: {x: 30, y: -59}
   m_SizeDelta: {x: 116.80823, y: 32.229126}
   m_Pivot: {x: 0.6675224, y: 0.28839356}
 --- !u!114 &698429313
@@ -6884,7 +6884,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 8:00 AM
+  m_text: 08:00 AM
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -6953,7 +6953,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 698429313}
-    characterCount: 7
+    characterCount: 8
     spriteCount: 0
     spaceCount: 1
     wordCount: 3
@@ -9913,7 +9913,7 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.5
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 0.1
+  m_Intensity: 0.15
   m_LightVolumeOpacity: 0
   m_ApplyToSortingLayers: 000000004f63cf3a617a9a4b
   m_LightCookieSprite: {fileID: 0}
@@ -17230,8 +17230,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1699770400}
   - component: {fileID: 1699770401}
+  - component: {fileID: 1699770402}
   m_Layer: 0
-  m_Name: Freeform Light 2D Upper
+  m_Name: DayLight Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17267,7 +17268,7 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.5
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 0.85
+  m_Intensity: 1
   m_LightVolumeOpacity: 0
   m_ApplyToSortingLayers: 000000004f63cf3a617a9a4b
   m_LightCookieSprite: {fileID: 0}
@@ -17275,7 +17276,7 @@ MonoBehaviour:
   m_LightOrder: 0
   m_AlphaBlendOnOverlap: 1
   m_ShadowIntensity: 0
-  m_ShadowVolumeIntensity: 0
+  m_ShadowVolumeIntensity: 0.59
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -17292,6 +17293,18 @@ MonoBehaviour:
   - {x: 28.975582, y: -4, z: 0}
   - {x: 29.165997, y: 42.496525, z: 0}
   - {x: -59.400795, y: 43.39113, z: 0}
+--- !u!114 &1699770402
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1699770399}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 582a4d7cac02ce2419be5d7d3eeb8e5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1714050205
 GameObject:
   m_ObjectHideFlags: 0
@@ -17709,6 +17722,7 @@ GameObject:
   - component: {fileID: 1766137738}
   - component: {fileID: 1766137740}
   - component: {fileID: 1766137739}
+  - component: {fileID: 1766137741}
   m_Layer: 5
   m_Name: Sun Dial
   m_TagString: Untagged
@@ -17733,8 +17747,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 63.303955, y: -66.159}
-  m_SizeDelta: {x: 126.607544, y: 132.31702}
+  m_AnchoredPosition: {x: 54.033, y: -66.159}
+  m_SizeDelta: {x: 108.06464, y: 132.31702}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1766137739
 MonoBehaviour:
@@ -17773,6 +17787,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1766137737}
   m_CullTransparentMesh: 0
+--- !u!114 &1766137741
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1766137737}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32ef1eacb9f880747babf2ab922cd635, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeOfDayText: {fileID: 698429313}
+  day: 0
 --- !u!61 &1770020574
 BoxCollider2D:
   m_ObjectHideFlags: 0
