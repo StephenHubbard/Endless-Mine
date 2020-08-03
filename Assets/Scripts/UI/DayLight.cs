@@ -9,18 +9,20 @@ public class DayLight : MonoBehaviour
     private float timeOfDayFloat;
     private float lightSourceIntensity = .85f;
     private float lightSourceIntensityClamped;
+    TimeOfDay timeOfDay;
 
     void Awake()
     {
         lightSource = GetComponent<Light2D>();
+        timeOfDay = FindObjectOfType<TimeOfDay>();
     }
 
     void Update()
     {
         timeOfDayFloat = FindObjectOfType<TimeOfDay>().day;
-        if (timeOfDayFloat > .666f)
+        if (timeOfDayFloat > .75f)
         {
-            lightSourceIntensity -= Time.deltaTime / 4.8f;
+            lightSourceIntensity -= Time.deltaTime / (timeOfDay.REAL_SECONDS_PER_INGAME_DAY * .25f);
             lightSourceIntensityClamped = Mathf.Clamp(lightSourceIntensity, 0f, 1f);
             lightSource.intensity = lightSourceIntensityClamped;
 

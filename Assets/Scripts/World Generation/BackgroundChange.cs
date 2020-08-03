@@ -6,8 +6,12 @@ public class BackgroundChange : MonoBehaviour
 {
     public CanvasGroup skyBackground;
     public CanvasGroup treesBackground;
+    public CanvasGroup skyBackgroundDark;
+    public CanvasGroup treesBackgroundDark;
     public CanvasGroup cavern;
     private PlayerMovement player;
+    TimeOfDay timeOfDay;
+
 
     Coroutine currentActiveFade = null;
 
@@ -15,11 +19,24 @@ public class BackgroundChange : MonoBehaviour
     private void Awake()
     {
         player = FindObjectOfType<PlayerMovement>();
+        timeOfDay = FindObjectOfType<TimeOfDay>();
     }
 
     private void Update()
     {
+        checkTimeForBackground();
         CheckDepth();
+    }
+
+    private void checkTimeForBackground()
+    {
+        if (timeOfDay.day > .66)
+        {
+            FadeIn(skyBackgroundDark, timeOfDay.REAL_SECONDS_PER_INGAME_DAY * .25f);
+            FadeIn(treesBackgroundDark, timeOfDay.REAL_SECONDS_PER_INGAME_DAY * .25f);
+            FadeOut(skyBackground, timeOfDay.REAL_SECONDS_PER_INGAME_DAY * .25f);
+            FadeOut(treesBackground, timeOfDay.REAL_SECONDS_PER_INGAME_DAY * .25f);
+        }
     }
 
     private void CheckDepth()
