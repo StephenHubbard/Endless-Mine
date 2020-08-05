@@ -69,7 +69,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11f7c9217615cc746b1eeccdef61c6b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentHealth: 5
+  currentHealth: 2
   rb: {fileID: 1484665038896871229}
   animator: {fileID: 1484665038896871203}
 --- !u!95 &1484665038896871203

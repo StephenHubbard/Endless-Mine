@@ -63,13 +63,19 @@ public class DialogueManager : MonoBehaviour
     {
         animator.SetBool("isOpen", false);
         shopWindow.SetActive(false);
-        inventoryContainer.GetComponent<CanvasGroup>().alpha = 0;
+        CanvasGroup canvasGroup = inventoryContainer.GetComponent<CanvasGroup>();
+        canvasGroup.alpha = 0;
+        canvasGroup.interactable = false;
+        canvasGroup.blocksRaycasts = false;
     }
 
     public void OpenShop()
     {
         shopWindow.SetActive(!shopWindow.activeInHierarchy);
-        inventoryContainer.GetComponent<CanvasGroup>().alpha = 1;
+        CanvasGroup canvasGroup = inventoryContainer.GetComponent<CanvasGroup>();
+        canvasGroup.alpha = 1;
+        canvasGroup.interactable = true;
+        canvasGroup.blocksRaycasts = true;
     }
 
 

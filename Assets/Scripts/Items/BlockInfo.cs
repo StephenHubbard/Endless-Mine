@@ -6,10 +6,4 @@ public class BlockInfo : MonoBehaviour
 {
     public Block block;
 
-    void Start()
-    {
-        
-    }
-
-    
 }

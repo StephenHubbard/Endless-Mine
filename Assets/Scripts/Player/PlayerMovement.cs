@@ -48,9 +48,9 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Move();
-        Swing();
         Climb();
+        Swing();
+        Move();
     }
 
     private void GetInputs()
@@ -83,9 +83,14 @@ public class PlayerMovement : MonoBehaviour
         RaycastHit2D[] hits = Physics2D.RaycastAll(pos, new Vector2(0, 0), 0.01f);
         foreach (RaycastHit2D hit in hits)
         {
-            //print(hit.transform.gameObject.name);
             GameObject target = hit.transform.gameObject;
             if (target == null) continue;
+
+            if (EventSystem.current.IsPointerOverGameObject())
+            {
+                SetCursor(CursorType.UI);
+                return true;
+            }
 
             if (target.CompareTag("Enemy"))
             {
@@ -100,13 +105,6 @@ public class PlayerMovement : MonoBehaviour
                     FindObjectOfType<DialogueTrigger>().TriggerDialogue();
                 }
                 SetCursor(CursorType.Shop);
-                return true;
-            }
-
-            if (EventSystem.current.IsPointerOverGameObject())
-            {
-                print(EventSystem.current);
-                SetCursor(CursorType.UI);
                 return true;
             }
         }
@@ -149,7 +147,7 @@ public class PlayerMovement : MonoBehaviour
         {
             myAnimator.SetBool("isJumping", false);
         }
-        else
+        else if (!controller.m_Grounded)
         {
             myAnimator.SetBool("isJumping", true);
         }
@@ -162,7 +160,7 @@ public class PlayerMovement : MonoBehaviour
             myRigidBody.gravityScale = gravityScaleAtStart;
             if (!controller.m_Grounded)
             {
-                myAnimator.SetBool("isJumping", false);
+                myAnimator.SetBool("isJumping", true);
             }
             return;
         }
@@ -176,7 +174,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void Swing()
     {
-        if (Input.GetMouseButton(0) && currentCursorType != CursorType.Shop)
+        if (Input.GetMouseButton(0) && currentCursorType != CursorType.Shop && currentCursorType != CursorType.UI)
         {
             {
                 myAnimator.SetBool("isSwinging", true);

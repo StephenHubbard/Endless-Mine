@@ -44,10 +44,14 @@ public class EquippedInventory : MonoBehaviour
             if (canvasGroup.alpha == 0)
             {
                 canvasGroup.alpha = 1;
+                canvasGroup.interactable = true;
+                canvasGroup.blocksRaycasts = true;
             }
             else
             {
                 canvasGroup.alpha = 0;
+                canvasGroup.interactable = false;
+                canvasGroup.blocksRaycasts = false;
             }
         }
 
@@ -93,8 +97,6 @@ public class EquippedInventory : MonoBehaviour
             }
             activeSlots[1] = true;
             equippedItem.GetComponent<SpriteRenderer>().sprite = sprites[1];
-
-
         }
 
         if (Input.GetButtonDown("3"))
@@ -144,6 +146,8 @@ public class EquippedInventory : MonoBehaviour
                 activeSlots[i] = false;
             }
             activeSlots[4] = true;
+            equippedItem.GetComponent<SpriteRenderer>().sprite = null;
+
         }
     }
 }
