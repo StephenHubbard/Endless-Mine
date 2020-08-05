@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -18,6 +19,17 @@ public class PlayerMovement : MonoBehaviour
     CircleCollider2D myFeet;
     float gravityScaleAtStart;
 
+    CursorType currentCursorType;
+
+    [System.Serializable]
+    struct CursorMapping
+    {
+        public CursorType type;
+        public Texture2D texture;
+        public Vector2 hotspot;
+    }
+
+    [SerializeField] CursorMapping[] cursorMappings = null;
 
     private void Awake()
     {
@@ -31,6 +43,7 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         GetInputs();
+        InteractWithCursor();
     }
 
     private void FixedUpdate()
@@ -49,6 +62,79 @@ public class PlayerMovement : MonoBehaviour
             jump = true;
             myAnimator.SetBool("isJumping", true);
         }
+    }
+
+    private void InteractWithCursor()
+    {
+        if (InteractWithUI()) return;
+        InteractWithNothing();
+    }
+
+    private bool InteractWithNothing()
+    {
+        SetCursor(CursorType.Default);
+        return true;
+    }
+
+    private bool InteractWithUI()
+    {
+        Vector2 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+        RaycastHit2D[] hits = Physics2D.RaycastAll(pos, new Vector2(0, 0), 0.01f);
+        foreach (RaycastHit2D hit in hits)
+        {
+            //print(hit.transform.gameObject.name);
+            GameObject target = hit.transform.gameObject;
+            if (target == null) continue;
+
+            if (target.CompareTag("Enemy"))
+            {
+                SetCursor(CursorType.Combat);
+                return true;
+            }
+
+            if (target.CompareTag("Shopkeeper"))
+            {
+                if (Input.GetMouseButtonDown(0))
+                {
+                    FindObjectOfType<DialogueTrigger>().TriggerDialogue();
+                }
+                SetCursor(CursorType.Shop);
+                return true;
+            }
+
+            if (EventSystem.current.IsPointerOverGameObject())
+            {
+                print(EventSystem.current);
+                SetCursor(CursorType.UI);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private static Ray GetMouseRay()
+    {
+        return Camera.main.ScreenPointToRay(Input.mousePosition);
+    }
+
+    private void SetCursor(CursorType type)
+    {
+        CursorMapping mapping = GetCursorMapping(type);
+        Cursor.SetCursor(mapping.texture, mapping.hotspot, CursorMode.Auto);
+    }
+
+    private CursorMapping GetCursorMapping(CursorType type)
+    {
+        foreach (CursorMapping mapping in cursorMappings)
+        {
+            if (mapping.type == type)
+            {
+                currentCursorType = mapping.type;
+                return mapping;
+            }
+        }
+        return cursorMappings[0];
     }
 
     private void Move()
@@ -90,10 +176,12 @@ public class PlayerMovement : MonoBehaviour
 
     public void Swing()
     {
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButton(0) && currentCursorType != CursorType.Shop)
         {
-            myAnimator.SetBool("isSwinging", true);
-            myAnimator.speed = miningSpeed;
+            {
+                myAnimator.SetBool("isSwinging", true);
+                myAnimator.speed = miningSpeed;
+            }
 
         }
         else
@@ -120,4 +208,6 @@ public class PlayerMovement : MonoBehaviour
     {
         equippedItemSprite.SetActive(true);
     }
+
+    
 }

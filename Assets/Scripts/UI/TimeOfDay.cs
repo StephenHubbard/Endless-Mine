@@ -9,7 +9,7 @@ public class TimeOfDay : MonoBehaviour
     public TextMeshProUGUI timeOfDayText;
 
     // must change value here and inspector
-    public float REAL_SECONDS_PER_INGAME_DAY = 1440f;
+    public float REAL_SECONDS_PER_INGAME_DAY = 600f;
 
     public float day;
 

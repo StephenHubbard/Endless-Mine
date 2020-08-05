@@ -4,9 +4,10 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - FxTemporaire
   - Enemy
   - Block
+  - Shopkeeper
+  - UI
   layers:
   - Default
   - TransparentFX

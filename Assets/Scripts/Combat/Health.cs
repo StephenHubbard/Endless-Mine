@@ -15,38 +15,59 @@ namespace Netherforge.Combat
 
         EnemyMovement enemy;
 
+        Vector2 startingPlayerPosition;
+
+        bool playerTakeDamageCD = false;
+
         private void Awake()
         {
             player = FindObjectOfType<PlayerMovement>();
+            startingPlayerPosition = player.transform.position;
         }
 
 
         public void TakeDamage(float damage, Vector2 knockback)
         {
-            if (gameObject.CompareTag("Enemy"))
+            if (playerTakeDamageCD == false)
             {
-                enemy = GetComponent<EnemyMovement>();
-                enemy.isGrounded = false;
-            }
+                if (gameObject.CompareTag("Enemy"))
+                {
+                    enemy = GetComponent<EnemyMovement>();
+                    enemy.isGrounded = false;
+                }
 
-            Vector3 heading = player.transform.position - transform.position;
-            dirNum = AngleDir(transform.forward, heading, transform.up);
-            if (dirNum < 0)
-            {
-                rb.velocity = knockback;
-            }
-            else
-            {
-                Vector2 negativeKnockback = new Vector2(-knockback.x, knockback.y);
-                rb.velocity = negativeKnockback;
-            }
+                Vector3 heading = player.transform.position - transform.position;
+                dirNum = AngleDir(transform.forward, heading, transform.up);
+                if (dirNum < 0)
+                {
+                    rb.velocity = knockback;
+                }
+                else
+                {
+                    Vector2 negativeKnockback = new Vector2(-knockback.x, knockback.y);
+                    rb.velocity = negativeKnockback;
+                }
 
-            currentHealth -= damage;
-            animator.SetTrigger("takeDamage");
-            if (currentHealth <= 0)
-            {
-                Die();
+                currentHealth -= damage;
+                animator.SetTrigger("takeDamage");
+                if (currentHealth <= 0)
+                {
+                    Die();
+                }
+
+                // take damage cd to prevent multiple hits in quick succession
+                if (gameObject.CompareTag("Player"))
+                {
+                    playerTakeDamageCD = true;
+                    StartCoroutine(takeDamageCD());
+                }
             }
+        }
+
+        private IEnumerator takeDamageCD()
+        {
+            yield return new WaitForSeconds(1f);
+            playerTakeDamageCD = false;
         }
 
         float AngleDir(Vector3 fwd, Vector3 targetDir, Vector3 up)
@@ -70,7 +91,15 @@ namespace Netherforge.Combat
 
         private void Die()
         {
-            Destroy(gameObject);
+            if (gameObject.CompareTag("Player"))
+            {
+                player.transform.position = startingPlayerPosition;
+                currentHealth = 3;
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
         }
     }
 }
