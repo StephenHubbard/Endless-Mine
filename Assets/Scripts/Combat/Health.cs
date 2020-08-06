@@ -7,6 +7,7 @@ namespace Netherforge.Combat
 {
     public class Health : MonoBehaviour
     {
+
         public float currentHealth = 0;
         public Rigidbody2D rb;
         public Animator animator;
@@ -18,6 +19,10 @@ namespace Netherforge.Combat
         Vector2 startingPlayerPosition;
 
         bool playerTakeDamageCD = false;
+
+        [SerializeField] AudioClip hurtSFX;
+        [SerializeField] AudioClip jellyAttackSFX;
+
 
         private void Awake()
         {
@@ -32,6 +37,7 @@ namespace Netherforge.Combat
             {
                 if (gameObject.CompareTag("Enemy"))
                 {
+                    AudioSource.PlayClipAtPoint(hurtSFX, Camera.main.transform.position, .2f);
                     enemy = GetComponent<EnemyMovement>();
                     enemy.isGrounded = false;
                 }
@@ -58,6 +64,7 @@ namespace Netherforge.Combat
                 // take damage cd to prevent multiple hits in quick succession
                 if (gameObject.CompareTag("Player"))
                 {
+                    AudioSource.PlayClipAtPoint(jellyAttackSFX, Camera.main.transform.position, .4f);
                     playerTakeDamageCD = true;
                     StartCoroutine(takeDamageCD());
                 }

@@ -5,16 +5,19 @@ using UnityEngine.UI;
 
 public class EquippedInventory : MonoBehaviour
 {
-    public GameObject equippedItem;
+    public GameObject equippedItemSprite = null;
     public GameObject inventoryContainer;
 
     public GameObject[] slots;
     public bool[] activeSlots;
     public Sprite[] sprites;
 
+    public GameObject activeItem = null;
+
     private void Awake()
     {
         activeSlots = new bool[5];
+        activeItem = slots[0].transform.GetChild(0).gameObject;
     }
 
     private void Start()
@@ -27,7 +30,7 @@ public class EquippedInventory : MonoBehaviour
     {
         slots[0].GetComponent<Outline>().enabled = true;
         activeSlots[0] = true;
-        equippedItem.GetComponent<SpriteRenderer>().sprite = sprites[0];
+        equippedItemSprite.GetComponent<SpriteRenderer>().sprite = slots[0].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite;
     }
 
     private void Update()
@@ -80,7 +83,8 @@ public class EquippedInventory : MonoBehaviour
                 activeSlots[i] = false;
             }
             activeSlots[0] = true;
-            equippedItem.GetComponent<SpriteRenderer>().sprite = sprites[0];
+            equippedItemSprite.GetComponent<SpriteRenderer>().sprite = slots[0].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite;
+            activeItem = slots[0].transform.GetChild(0).gameObject;
         }
 
         if (Input.GetButtonDown("2"))
@@ -96,7 +100,8 @@ public class EquippedInventory : MonoBehaviour
                 activeSlots[i] = false;
             }
             activeSlots[1] = true;
-            equippedItem.GetComponent<SpriteRenderer>().sprite = sprites[1];
+            equippedItemSprite.GetComponent<SpriteRenderer>().sprite = slots[1].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite;
+            activeItem = slots[1].transform.GetChild(0).gameObject;
         }
 
         if (Input.GetButtonDown("3"))
@@ -112,7 +117,8 @@ public class EquippedInventory : MonoBehaviour
                 activeSlots[i] = false;
             }
             activeSlots[2] = true;
-            equippedItem.GetComponent<SpriteRenderer>().sprite = sprites[2];
+            equippedItemSprite.GetComponent<SpriteRenderer>().sprite = slots[2].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite;
+            activeItem = slots[2].transform.GetChild(0).gameObject;
 
         }
 
@@ -129,7 +135,8 @@ public class EquippedInventory : MonoBehaviour
                 activeSlots[i] = false;
             }
             activeSlots[3] = true;
-            equippedItem.GetComponent<SpriteRenderer>().sprite = sprites[3];
+            equippedItemSprite.GetComponent<SpriteRenderer>().sprite = slots[3].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite;
+            activeItem = slots[3].transform.GetChild(0).gameObject;
 
         }
 
@@ -146,7 +153,8 @@ public class EquippedInventory : MonoBehaviour
                 activeSlots[i] = false;
             }
             activeSlots[4] = true;
-            equippedItem.GetComponent<SpriteRenderer>().sprite = null;
+            equippedItemSprite.GetComponent<SpriteRenderer>().sprite = slots[4].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite;
+            activeItem = slots[4].transform.GetChild(0).gameObject;
 
         }
     }

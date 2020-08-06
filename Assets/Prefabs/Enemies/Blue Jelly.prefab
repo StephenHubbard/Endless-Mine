@@ -72,6 +72,7 @@ MonoBehaviour:
   currentHealth: 2
   rb: {fileID: 1484665038896871229}
   animator: {fileID: 1484665038896871203}
+  hurtSFX: {fileID: 8300000, guid: e2a8adffde06d5549be91a01b6957ada, type: 3}
 --- !u!95 &1484665038896871203
 Animator:
   serializedVersion: 3

@@ -47,17 +47,17 @@ public class MineBlock : MonoBehaviour
 
     private void detectItem()
     {
-        if (Input.GetMouseButton(0) && colliderInBlock && equippedInventory.activeSlots[0])
+        if (Input.GetMouseButton(0) && colliderInBlock && equippedInventory.activeItem.GetComponent<PickaxeInfo>())
         {
             HitBlock();
         }
 
-        if (Input.GetMouseButton(0) && colliderInBlock && equippedInventory.activeSlots[1])
+        if (Input.GetMouseButton(0) && colliderInBlock && equippedInventory.activeItem.GetComponent<TorchInfo>())
         {
             PlaceTorch();
         }
 
-        if (Input.GetMouseButton(0) && !colliderInBlock && equippedInventory.activeSlots[3])
+        if (Input.GetMouseButton(0) && !colliderInBlock && equippedInventory.activeItem.GetComponent<LadderInfo>())
         {
             PlaceLadder();
         }
