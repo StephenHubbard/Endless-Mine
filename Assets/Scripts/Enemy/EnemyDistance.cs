@@ -5,12 +5,10 @@ using UnityEngine;
 public class EnemyDistance : MonoBehaviour
 {
     PlayerMovement player;
-    Transform childTransform;
 
     private void Awake()
     {
         player = FindObjectOfType<PlayerMovement>();
-        childTransform = transform.GetChild(0);
     }
 
     void Start()
@@ -21,13 +19,6 @@ public class EnemyDistance : MonoBehaviour
     void Update()
     {
         setActive();
-        followChild();   
-    }
-
-    private void followChild()
-    {
-        // TO DO - fix parent positioning for disabling inside chunks
-        //transform.position = childTransform.position;
     }
 
     private void setActive()
@@ -37,17 +28,15 @@ public class EnemyDistance : MonoBehaviour
 
         if (playerDistance > 20f)
         {
-            foreach (Transform child in transform)
-            {
-                child.gameObject.SetActive(false);
-            }
+            GetComponent<EnemyMovement>().enabled = false;
+            GetComponent<SpriteRenderer>().enabled = false;
+            GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
         }
         else
         {
-            foreach (Transform child in transform)
-            {
-                child.gameObject.SetActive(true);
-            }
+            GetComponent<EnemyMovement>().enabled = true;
+            GetComponent<SpriteRenderer>().enabled = true;
+            GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
         }
     }
 }

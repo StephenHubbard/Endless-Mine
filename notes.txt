@@ -2,8 +2,18 @@
 
 better direction / highlight active square 
 
-pickaxe and sword power
+bloom glow to torches
 
-universtal tooltip coding
+end of day point screen (possible SDV gold gathering)
+
+different shops depending on who you talk to 
+
+more enemies (bats sprite available)
+
+different levels of torches 
+
+speed up selling block interval time
+
+
 
 
