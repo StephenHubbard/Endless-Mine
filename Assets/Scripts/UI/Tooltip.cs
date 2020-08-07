@@ -7,7 +7,6 @@ public class Tooltip : MonoBehaviour
 {
     private static Tooltip instance;
     // camera is null for screenspace overlay camera
-    private Camera uiCamera;
     private Text tooltipText;
     private RectTransform backgroundRectTransform;
 
@@ -35,8 +34,10 @@ public class Tooltip : MonoBehaviour
     private void Update()
     {
         Vector2 localPoint;
-        RectTransformUtility.ScreenPointToLocalPointInRectangle(transform.parent.GetComponent<RectTransform>(), Input.mousePosition, uiCamera, out localPoint);
-        transform.localPosition = localPoint;
+        RectTransformUtility.ScreenPointToLocalPointInRectangle(transform.parent.GetComponent<RectTransform>(), Input.mousePosition, null, out localPoint);
+        // TODO fix static formatting, change rect position ancors most likely
+        Vector2 newLocalPoint = new Vector2(localPoint.x, localPoint.y + 40f);
+        transform.localPosition = newLocalPoint;
     }
 
     private void ShowTooltip(string tooltipString)

@@ -14,6 +14,15 @@ TextureImporter:
   - first:
       213: -109761599910494025
     second: Swords_1
+  - first:
+      213: 4978276593797209138
+    second: Swords_2
+  - first:
+      213: -9004990608046106943
+    second: Swords_3
+  - first:
+      213: 8289387723579576647
+    second: Swords_4
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -148,6 +157,69 @@ TextureImporter:
       bones: []
       spriteID: 7b04b5b086c0a7ef0800000000000000
       internalID: -109761599910494025
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Swords_2
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 313
+        width: 33
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23c9cee9f24661540800000000000000
+      internalID: 4978276593797209138
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Swords_3
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 313
+        width: 37
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c6dea1a0c8d70380800000000000000
+      internalID: -9004990608046106943
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Swords_4
+      rect:
+        serializedVersion: 2
+        x: 215
+        y: 313
+        width: 39
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 741d17d2732d90370800000000000000
+      internalID: 8289387723579576647
       vertices: []
       indices: 
       edges: []

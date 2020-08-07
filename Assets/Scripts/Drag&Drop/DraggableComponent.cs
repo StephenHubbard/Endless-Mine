@@ -15,10 +15,13 @@ public class DraggableComponent : MonoBehaviour, IInitializePotentialDragHandler
     private RectTransform rectTransform;
     private Canvas canvas;
 
+    MineBlock mineblock;
+
     private void Awake()
     {
         rectTransform = GetComponent<RectTransform>();
         canvas = GetComponentInParent<Canvas>();
+        mineblock = FindObjectOfType<MineBlock>();
     }
 
     public void OnBeginDrag(PointerEventData eventData)
@@ -33,6 +36,9 @@ public class DraggableComponent : MonoBehaviour, IInitializePotentialDragHandler
 
     public void OnDrag(PointerEventData eventData)
     {
+        mineblock.isAbleToAction = false;
+
+
         if (!CanDrag)
         {
             return;
@@ -48,6 +54,9 @@ public class DraggableComponent : MonoBehaviour, IInitializePotentialDragHandler
 
     public void OnEndDrag(PointerEventData eventData)
     {
+        mineblock.isAbleToAction = true;
+
+
         if (!CanDrag)
         {
             return;
@@ -68,13 +77,13 @@ public class DraggableComponent : MonoBehaviour, IInitializePotentialDragHandler
             }
         }
 
-        if (dropArea != null)
+        if (dropArea != null && dropArea.transform.childCount < 1)
         {
             if (dropArea.Accepts(this))
             {
                 dropArea.Drop(this);
                 OnEndDragHandler?.Invoke(eventData, true);
-               transform.parent = dropArea.transform;
+                transform.parent = dropArea.transform;
                 return;
             }
         }

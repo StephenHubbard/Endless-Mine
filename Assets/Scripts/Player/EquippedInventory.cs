@@ -39,6 +39,24 @@ public class EquippedInventory : MonoBehaviour
         ToggleInventory();
     }
 
+    public void UpdateActiveItemForce()
+    {
+        StartCoroutine(UpdateActiveItemForceCoroutine());
+    }
+
+    IEnumerator UpdateActiveItemForceCoroutine()
+    {
+        // was getting a small delay on moving go's in the hierachy and it was causing an async discrepency
+        yield return new WaitForSeconds(.1f);
+        for (int i = 0; i < activeSlots.Length; i++)
+        {
+            if (activeSlots[i] == true)
+            {
+                activeItem = slots[i].transform.GetChild(0).gameObject;
+            }
+        }
+    }
+
     private void ToggleInventory()
     {
         if (Input.GetButtonDown("Inventory"))

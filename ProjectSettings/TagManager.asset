@@ -8,6 +8,7 @@ TagManager:
   - Block
   - Shopkeeper
   - UI
+  - Door
   layers:
   - Default
   - TransparentFX
@@ -20,8 +21,8 @@ TagManager:
   - Player
   - Camera Confiner
   - Ladder
-  - 
-  - 
+  - Shopkeeper
+  - Door
   - 
   - 
   - 

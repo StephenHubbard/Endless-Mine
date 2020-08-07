@@ -4,79 +4,95 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class DialogueManager : MonoBehaviour
+namespace Netherforge.dialogue
 {
-    public GameObject dialogueContainer;
-    public TextMeshProUGUI dialogueText;
-    public Animator animator;
-    public GameObject inventoryContainer;
-
-    public GameObject shopWindow;
-
-    public Queue<string> sentences;
-
-    private void Start()
+    public class DialogueManager : MonoBehaviour
     {
-        sentences = new Queue<string>();
-    }
+        [SerializeField] GameObject sleepButton;
+        [SerializeField] GameObject shopButton;
+        public GameObject dialogueContainer;
+        public TextMeshProUGUI dialogueText;
+        public Animator animator;
+        public GameObject inventoryContainer;
 
-    public void StartDialogue(Dialogue dialogue)
-    {
-        dialogueContainer.SetActive(true);
-        animator.SetBool("isOpen", true);
+        public GameObject shopWindow;
 
-        sentences.Clear();
+        public Queue<string> sentences;
 
-        foreach (string sentence in dialogue.sentences)
+        private void Start()
         {
-            sentences.Enqueue(sentence);
+            sentences = new Queue<string>();
         }
 
-        DisplayNextSentence();
-    }
-
-    public void DisplayNextSentence()
-    {
-        if (sentences.Count == 0)
+        public void StartDialogue(Dialogue dialogue)
         {
-            EndDialogue();
-            return;
+            dialogueContainer.SetActive(true);
+            animator.SetBool("isOpen", true);
+
+            sentences.Clear();
+
+            foreach (string sentence in dialogue.sentences)
+            {
+                sentences.Enqueue(sentence);
+            }
+
+            DisplayNextSentence();
         }
 
-        string sentence = sentences.Dequeue();
-        StopAllCoroutines();
-        StartCoroutine(TypeSentence(sentence));
-
-    }
-
-    IEnumerator TypeSentence (string sentence)
-    {
-        dialogueText.text = "";
-        foreach (char letter in sentence.ToCharArray())
+        public void DisplayNextSentence()
         {
-            dialogueText.text += letter;
-            yield return null;
+            if (sentences.Count == 0)
+            {
+                EndDialogue();
+                return;
+            }
+
+            string sentence = sentences.Dequeue();
+            StopAllCoroutines();
+            StartCoroutine(TypeSentence(sentence));
+
+        }
+
+        IEnumerator TypeSentence(string sentence)
+        {
+            dialogueText.text = "";
+            foreach (char letter in sentence.ToCharArray())
+            {
+                dialogueText.text += letter;
+                yield return null;
+            }
+        }
+
+        public void EndDialogue()
+        {
+            animator.SetBool("isOpen", false);
+            shopWindow.SetActive(false);
+            CanvasGroup canvasGroup = inventoryContainer.GetComponent<CanvasGroup>();
+            canvasGroup.alpha = 0;
+            canvasGroup.interactable = false;
+            canvasGroup.blocksRaycasts = false;
+        }
+
+        public void OpenShop()
+        {
+            shopWindow.SetActive(!shopWindow.activeInHierarchy);
+            CanvasGroup canvasGroup = inventoryContainer.GetComponent<CanvasGroup>();
+            canvasGroup.alpha = 1;
+            canvasGroup.interactable = true;
+            canvasGroup.blocksRaycasts = true;
+        }
+
+        public void ShopkeeperDisplay()
+        {
+            sleepButton.SetActive(false);
+            shopButton.SetActive(true);
+
+        }
+
+        public void GoToSleep()
+        {
+            SleepDoor sleepDoor = FindObjectOfType<SleepDoor>();
+            sleepDoor.endDay();
         }
     }
-
-    public void EndDialogue()
-    {
-        animator.SetBool("isOpen", false);
-        shopWindow.SetActive(false);
-        CanvasGroup canvasGroup = inventoryContainer.GetComponent<CanvasGroup>();
-        canvasGroup.alpha = 0;
-        canvasGroup.interactable = false;
-        canvasGroup.blocksRaycasts = false;
-    }
-
-    public void OpenShop()
-    {
-        shopWindow.SetActive(!shopWindow.activeInHierarchy);
-        CanvasGroup canvasGroup = inventoryContainer.GetComponent<CanvasGroup>();
-        canvasGroup.alpha = 1;
-        canvasGroup.interactable = true;
-        canvasGroup.blocksRaycasts = true;
-    }
-
-
 }

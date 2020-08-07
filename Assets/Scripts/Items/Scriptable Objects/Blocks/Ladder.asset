@@ -15,3 +15,5 @@ MonoBehaviour:
   name: Ladder
   sprite: {fileID: 21300000, guid: 5fd6b087ac6cc224e9a18bca168388ee, type: 3}
   goldValue: 5
+  blockPower: 1
+  blockHealth: 1

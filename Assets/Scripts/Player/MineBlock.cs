@@ -9,15 +9,16 @@ public class MineBlock : MonoBehaviour
     private bool colliderInBlock = false;
     private GameObject currentBlock = null;
     private EquippedInventory equippedInventory;
+    BlockHealth blockHealth;
+    private int minePower;
 
     public GameObject torch;
     public GameObject ladder;
 
-
+    public bool isAbleToAction = true;
 
 
     // Audio sources
-    public AudioSource dirtSFX;
     public AudioSource torchSFX;
 
     private void Awake()
@@ -47,19 +48,22 @@ public class MineBlock : MonoBehaviour
 
     private void detectItem()
     {
-        if (Input.GetMouseButton(0) && colliderInBlock && equippedInventory.activeItem.GetComponent<PickaxeInfo>())
+        if (isAbleToAction)
         {
-            HitBlock();
-        }
+            if (Input.GetMouseButton(0) && colliderInBlock && equippedInventory.activeItem.GetComponent<PickaxeInfo>())
+            {
+                HitBlock();
+            }
 
-        if (Input.GetMouseButton(0) && colliderInBlock && equippedInventory.activeItem.GetComponent<TorchInfo>())
-        {
-            PlaceTorch();
-        }
+            if (Input.GetMouseButton(0) && colliderInBlock && equippedInventory.activeItem.GetComponent<TorchInfo>())
+            {
+                PlaceTorch();
+            }
 
-        if (Input.GetMouseButton(0) && !colliderInBlock && equippedInventory.activeItem.GetComponent<LadderInfo>())
-        {
-            PlaceLadder();
+            if (Input.GetMouseButton(0) && !colliderInBlock && equippedInventory.activeItem.GetComponent<LadderInfo>())
+            {
+                PlaceLadder();
+            }
         }
     }
 
@@ -84,8 +88,9 @@ public class MineBlock : MonoBehaviour
         {
             if (!currentBlock.GetComponent<Pickup>())
             {
-                blockIntoPickup();
-                dirtSFX.Play();
+                blockHealth = currentBlock.GetComponent<BlockHealth>();
+                minePower = equippedInventory.activeItem.GetComponent<PickaxeInfo>().pickaxe.miningPower;
+                blockHealth.takeDamage(minePower);
                 colliderInBlock = false;
             }
         }
@@ -97,7 +102,7 @@ public class MineBlock : MonoBehaviour
         detectItem();
     }
 
-    private void blockIntoPickup()
+    public void blockIntoPickup()
     {
         currentBlock.transform.localScale = new Vector3(.5f, .5f, .5f);
         if (!currentBlock.GetComponent<Rigidbody2D>())

@@ -38,9 +38,7 @@ public class SellSlot : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
             rightMouseButtonHeldDown = true;
             StartCoroutine(sellItem());
         }
-
     }
-
 
     public void OnPointerUp(PointerEventData eventData)
     {

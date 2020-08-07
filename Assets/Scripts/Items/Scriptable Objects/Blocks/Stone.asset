@@ -15,3 +15,5 @@ MonoBehaviour:
   name: Stone
   sprite: {fileID: 21300084, guid: 261212b977f594d5dbc48631a5c1295c, type: 3}
   goldValue: 2
+  blockPower: 1
+  blockHealth: 2

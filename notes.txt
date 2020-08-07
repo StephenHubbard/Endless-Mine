@@ -1,10 +1,9 @@
-daytime/night time - must sleep at a certain time of night like SDV
+// TODO
 
-bug(s) on player death
+better direction / highlight active square 
 
-start thinking of scalable difficulty
+pickaxe and sword power
 
-drag and drop inventory / equipped inventory. 
+universtal tooltip coding
 
-UI cursor(s) changes 
 

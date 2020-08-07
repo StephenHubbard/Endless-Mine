@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemySpawns : MonoBehaviour
 {
     public GameObject blueJelly;
-    public GameObject enemyContainer;
+    //public GameObject enemyContainer;
 
     public void spawnEnemies(Vector2 coordinate, GameObject chunk)
     {

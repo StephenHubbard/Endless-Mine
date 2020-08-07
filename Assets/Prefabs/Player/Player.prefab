@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1961886245}
   m_Layer: 8
   m_Name: Place Torch
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -43,7 +43,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: b43d102aac6b145468dcaa94a5cccae1, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -139,11 +139,11 @@ GameObject:
   - component: {fileID: 3615275617789837017}
   m_Layer: 8
   m_Name: Player Point Light 2D
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3615275617789837016
 Transform:
   m_ObjectHideFlags: 0
@@ -211,7 +211,7 @@ GameObject:
   - component: {fileID: 3615275617841579394}
   m_Layer: 8
   m_Name: MineDirt
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -242,7 +242,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 910b93a102bbd5f488a3be99b164465f, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -342,6 +342,7 @@ GameObject:
   - component: {fileID: 3615275617954841934}
   - component: {fileID: 3615275617954841929}
   - component: {fileID: 3615275617954841930}
+  - component: {fileID: 1665830262}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -406,7 +407,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 986669903
-  m_SortingLayer: 1
+  m_SortingLayer: 2
   m_SortingOrder: 1
   m_Sprite: {fileID: -8901684855906461251, guid: b084bf9cdc59b1e478c308cab94c7169,
     type: 3}
@@ -510,9 +511,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.32585317}
+  m_Offset: {x: 0.0027971268, y: -0.3037535}
   serializedVersion: 2
-  m_Radius: 0.4100835
+  m_Radius: 0.41469562
 --- !u!114 &3615275617954841929
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -530,7 +531,24 @@ MonoBehaviour:
   myAnimator: {fileID: 3615275617954841930}
   equippedItemSprite: {fileID: 3615275618055967422}
   runSpeed: 25
+  climbSpeed: 5
   miningSpeed: 2
+  cursorMappings:
+  - type: 0
+    texture: {fileID: 2800000, guid: 2e71a8202d3b4a3448ec85ced5a40265, type: 3}
+    hotspot: {x: 0, y: 0}
+  - type: 1
+    texture: {fileID: 2800000, guid: 6fdfcd4167ed5e7488584241bb671bb2, type: 3}
+    hotspot: {x: 0, y: 0}
+  - type: 2
+    texture: {fileID: 2800000, guid: 2d18e23e3ce249b4489b8bcdd02d3f48, type: 3}
+    hotspot: {x: 0, y: 0}
+  - type: 3
+    texture: {fileID: 2800000, guid: f8c873f1e53e83f4aabf342d6be1dfc3, type: 3}
+    hotspot: {x: 0, y: 0}
+  - type: 4
+    texture: {fileID: 2800000, guid: 7d4a349e204be984cbd483b7ba288543, type: 3}
+    hotspot: {x: 0, y: 0}
 --- !u!95 &3615275617954841930
 Animator:
   serializedVersion: 3
@@ -550,6 +568,23 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1665830262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3615275617954841922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11f7c9217615cc746b1eeccdef61c6b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentHealth: 3
+  rb: {fileID: 3615275617954841933}
+  animator: {fileID: 3615275617954841930}
+  hurtSFX: {fileID: 0}
+  jellyAttackSFX: {fileID: 8300000, guid: f9db59bf46583ce4295e028aa929bbc8, type: 3}
 --- !u!1 &3615275618055967422
 GameObject:
   m_ObjectHideFlags: 0
@@ -560,9 +595,11 @@ GameObject:
   m_Component:
   - component: {fileID: 3615275618055967423}
   - component: {fileID: 3615275618055967416}
+  - component: {fileID: 381810045}
+  - component: {fileID: 381810047}
   m_Layer: 8
   m_Name: Equipped Item
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -618,7 +655,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 986669903
-  m_SortingLayer: 1
+  m_SortingLayer: 2
   m_SortingOrder: 2
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -631,6 +668,45 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &381810045
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3615275618055967422}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
+--- !u!114 &381810047
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3615275618055967422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bb370d0e702a874a960469510e8a345, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  knockback: {x: 4, y: 4}
 --- !u!1 &3615275618323914857
 GameObject:
   m_ObjectHideFlags: 0
@@ -646,7 +722,7 @@ GameObject:
   - component: {fileID: 3615275618323914870}
   m_Layer: 8
   m_Name: MouseDirectionCollider
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -744,6 +820,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   torch: {fileID: 701242324703955344, guid: 50d84772a1291c84eaf391a276346ae6, type: 3}
+  ladder: {fileID: 4650931711211568453, guid: f7d33ad2077bd684a8804388ed8ded68, type: 3}
+  isAbleToAction: 1
   dirtSFX: {fileID: 3615275617841579394}
   torchSFX: {fileID: 1961886245}
 --- !u!50 &3615275618323914870
@@ -778,7 +856,7 @@ GameObject:
   - component: {fileID: 3615275618326452960}
   m_Layer: 8
   m_Name: SFX
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -810,7 +888,7 @@ GameObject:
   - component: {fileID: 3615275618371664555}
   m_Layer: 8
   m_Name: GroundCheck
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -840,7 +918,7 @@ GameObject:
   - component: {fileID: 3615275618430313002}
   m_Layer: 8
   m_Name: CeilingCheck
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -870,8 +948,8 @@ GameObject:
   - component: {fileID: 3615275618797508299}
   - component: {fileID: 3615275618797508308}
   m_Layer: 8
-  m_Name: FollowContrainer
-  m_TagString: Untagged
+  m_Name: FollowContainer
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

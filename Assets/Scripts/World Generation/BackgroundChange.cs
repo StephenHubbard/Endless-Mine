@@ -37,6 +37,14 @@ public class BackgroundChange : MonoBehaviour
             FadeOut(skyBackground, timeOfDay.REAL_SECONDS_PER_INGAME_DAY * .25f);
             FadeOut(treesBackground, timeOfDay.REAL_SECONDS_PER_INGAME_DAY * .25f);
         }
+
+        if (timeOfDay.day < .66)
+        {
+            FadeIn(skyBackground, 1f);
+            FadeIn(treesBackground, 1f);
+            FadeOut(skyBackgroundDark, 1f);
+            FadeOut(treesBackgroundDark, 1f);
+        }
     }
 
     private void CheckDepth()

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7224572387642349397}
   - component: {fileID: -101568024684265222}
   - component: {fileID: -4890691055362631279}
+  - component: {fileID: -6711081339432201529}
   m_Layer: 0
   m_Name: Diamond
   m_TagString: Block
@@ -136,3 +137,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   StartPosition: {x: 0, y: 0, z: 0}
+--- !u!114 &-6711081339432201529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7332066144533281415}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6896045785bd2b4ea7c65e583f7897e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blockHealth: 0
+  blockPower: 0
+  mineDirtSFX: {fileID: 8300000, guid: 910b93a102bbd5f488a3be99b164465f, type: 3}
+  metalClankSFX: {fileID: 8300000, guid: 29e9d7e5201d5384ca69ad068204c364, type: 3}

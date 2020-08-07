@@ -5,7 +5,7 @@ using UnityEngine;
 public class ProceduralGeneration : MonoBehaviour
 {
     [SerializeField] int chunks;
-    [SerializeField] GameObject dirt, stone, iron, diamond, coal;
+    [SerializeField] GameObject dirt, stone, iron, diamond, coal, dirtLevel2;
     [SerializeField] GameObject chunkPrefab;
     EnemySpawns enemySpawns;
 
@@ -96,6 +96,11 @@ public class ProceduralGeneration : MonoBehaviour
                     GameObject newBlockY = Instantiate(diamond, new Vector2(spawnColumn + x, spawnRow - y), Quaternion.identity);
                     newBlockY.transform.parent = chunk.transform;
                 }
+                else if (cavePoints[spawnColumn + x, -(spawnRow - y)] == 1 && (y + -spawnRow) > 40)
+                {
+                    GameObject newBlockY = Instantiate(dirtLevel2, new Vector2(spawnColumn + x, spawnRow - y), Quaternion.identity);
+                    newBlockY.transform.parent = chunk.transform;
+                }
                 else if (cavePoints[spawnColumn + x, -(spawnRow - y)] == 1)
                 {
                     GameObject newBlockY = Instantiate(dirt, new Vector2(spawnColumn + x, spawnRow - y), Quaternion.identity);
@@ -103,13 +108,6 @@ public class ProceduralGeneration : MonoBehaviour
                 }
                 else
                 {
-                    //int spawnEnemyInt = Random.Range(1, 20);
-                    //if (spawnEnemyInt == 1)
-                    //{
-                    //    GameObject enemy = Instantiate(blueJelly, new Vector2(spawnColumn + x, spawnRow - y), Quaternion.identity);
-                    //    enemy.transform.parent = chunk.transform;
-                    //}
-
                     enemySpawns.spawnEnemies(coordinate, chunk);
                 }
             }

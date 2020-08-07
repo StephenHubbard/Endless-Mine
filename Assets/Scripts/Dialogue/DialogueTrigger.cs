@@ -2,25 +2,28 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DialogueTrigger : MonoBehaviour
+namespace Netherforge.dialogue
 {
-    public Dialogue dialogue;
-    private GameObject thisDialogue;
-    public GameObject nextDialogue;
-
-    private void Start()
+    public class DialogueTrigger : MonoBehaviour
     {
-        thisDialogue = this.gameObject;
-    }
+        public Dialogue dialogue;
+        private GameObject thisDialogue;
+        public GameObject nextDialogue;
 
-    public void TriggerDialogue()
-    {
-        FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
-    }
+        private void Start()
+        {
+            thisDialogue = this.gameObject;
+        }
 
-    public void disableDialogue()
-    {
-        thisDialogue.SetActive(false);
-        nextDialogue.SetActive(true);
+        public void TriggerDialogue()
+        {
+            FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+        }
+
+        public void disableDialogue()
+        {
+            thisDialogue.SetActive(false);
+            nextDialogue.SetActive(true);
+        }
     }
 }

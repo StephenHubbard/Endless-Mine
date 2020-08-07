@@ -9,4 +9,5 @@ public class Pickaxe : ScriptableObject
     public Sprite sprite;
     public int goldValue;
     public int miningPower;
+    public float swingSpeed;
 }

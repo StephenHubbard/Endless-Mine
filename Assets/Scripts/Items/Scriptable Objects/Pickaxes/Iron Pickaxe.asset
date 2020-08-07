@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Iron Pickaxe
   sprite: {fileID: 452014425675766593, guid: a883ee833812b7f4e82755c495bd8735, type: 3}
-  goldValue: 100
+  goldValue: 20
   miningPower: 2
+  swingSpeed: 1.5

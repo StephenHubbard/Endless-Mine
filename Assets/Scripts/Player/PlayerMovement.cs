@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using Netherforge.dialogue;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -12,12 +13,13 @@ public class PlayerMovement : MonoBehaviour
     MineBlock activeItem;
     public float runSpeed = 40f;
     public float climbSpeed = 40f;
-    [SerializeField] float miningSpeed = 1f;
+    private float swingSpeed = 1f;
     float horizontalMove = 0f;
     bool jump = false;
     bool isFlipped = false;
     CircleCollider2D myFeet;
     float gravityScaleAtStart;
+    GameObject equippedInventory;
 
     CursorType currentCursorType;
 
@@ -100,11 +102,26 @@ public class PlayerMovement : MonoBehaviour
 
             if (target.CompareTag("Shopkeeper"))
             {
-                if (Input.GetMouseButtonDown(0))
+                if (Input.GetMouseButtonDown(1))
                 {
-                    FindObjectOfType<DialogueTrigger>().TriggerDialogue();
+                    target.GetComponentInChildren<DialogueTrigger>().TriggerDialogue();
+                    DialogueManager dialogueManager = FindObjectOfType<DialogueManager>();
+                    dialogueManager.ShopkeeperDisplay();
                 }
                 SetCursor(CursorType.Shop);
+                return true;
+            }
+
+            if (target.CompareTag("Door"))
+            {
+                if (Input.GetMouseButtonDown(1))
+                {
+                    target.GetComponentInChildren<DialogueTrigger>().TriggerDialogue();
+                    SleepDoor sleepDoor = FindObjectOfType<SleepDoor>();
+                    sleepDoor.showSleepButton();
+                    
+                }
+                SetCursor(CursorType.Door);
                 return true;
             }
         }
@@ -176,9 +193,24 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Input.GetMouseButton(0) && currentCursorType != CursorType.Shop && currentCursorType != CursorType.UI)
         {
+            equippedInventory = FindObjectOfType<EquippedInventory>().activeItem;
+            if (equippedInventory.GetComponent<PickaxeInfo>())
+            {
+                swingSpeed = equippedInventory.GetComponent<PickaxeInfo>().pickaxe.swingSpeed;
+            }
+            else if (equippedInventory.GetComponent<WeaponInfo>())
+            {
+                swingSpeed = equippedInventory.GetComponent<WeaponInfo>().weapon.swingSpeed;
+            }
+            else
+            {
+                swingSpeed = 2f;
+            }
+
             {
                 myAnimator.SetBool("isSwinging", true);
-                myAnimator.speed = miningSpeed;
+                
+                myAnimator.speed = swingSpeed;
             }
 
         }

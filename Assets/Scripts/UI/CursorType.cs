@@ -4,4 +4,5 @@
     UI,
     Combat,
     Shop,
+    Door,
 }

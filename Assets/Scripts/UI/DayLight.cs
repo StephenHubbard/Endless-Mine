@@ -7,7 +7,7 @@ public class DayLight : MonoBehaviour
 {
     private Light2D lightSource;
     private float timeOfDayFloat;
-    private float lightSourceIntensity = .85f;
+    public float lightSourceIntensity = .85f;
     private float lightSourceIntensityClamped;
     TimeOfDay timeOfDay;
 
@@ -33,6 +33,10 @@ public class DayLight : MonoBehaviour
                 gameObject.SetActive(true);
             }
         }
+    }
 
+    public void newDay()
+    {
+        lightSource.intensity = .85f;
     }
 }

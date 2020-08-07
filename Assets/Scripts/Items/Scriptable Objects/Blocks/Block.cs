@@ -8,4 +8,6 @@ public class Block : ScriptableObject
     public new string name;
     public Sprite sprite;
     public int goldValue;
+    public int blockPower;
+    public int blockHealth;
 }

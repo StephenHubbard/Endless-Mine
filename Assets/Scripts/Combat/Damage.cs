@@ -8,7 +8,7 @@ namespace Netherforge.Combat
     {
         Health health;
         [SerializeField] Vector2 knockback = new Vector2(1f, 1f);
-
+        GameObject equippedItem;
 
         private void Awake()
         {
@@ -16,11 +16,13 @@ namespace Netherforge.Combat
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
+            equippedItem = FindObjectOfType<EquippedInventory>().activeItem;
             health = collision.GetComponent<Health>();
-
-            if (collision.gameObject.CompareTag("Enemy"))
+            if (collision.gameObject.CompareTag("Enemy") && equippedItem.GetComponent<WeaponInfo>())
             {
-                health.TakeDamage(1f, knockback);
+                int weaponDamge;
+                weaponDamge = equippedItem.GetComponent<WeaponInfo>().weapon.attackPower;
+                health.TakeDamage(weaponDamge, knockback);
             }
         }
     }

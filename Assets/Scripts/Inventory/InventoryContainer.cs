@@ -5,8 +5,6 @@ using UnityEngine.UI;
 
 public class InventoryContainer : MonoBehaviour
 {
-    public Sprite dirtSprite;
-
     public void addClassToSlot(BlockInfo blockInfo, GameObject thisSlot)
     {
         thisSlot.GetComponent<InventorySlot>().isOccupied = true;

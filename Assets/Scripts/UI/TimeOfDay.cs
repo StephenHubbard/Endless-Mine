@@ -30,6 +30,13 @@ public class TimeOfDay : MonoBehaviour
     {
         UpdateTime();
         EndOfDay();
+        
+    }
+
+    public void newDay()
+    {
+        day = 0.33333f;
+
     }
 
     private void EndOfDay()
