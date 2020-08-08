@@ -8,4 +8,5 @@ public class Torch : ScriptableObject
     public new string name;
     public Sprite sprite;
     public int goldValue;
+    public float glowIntensity;
 }

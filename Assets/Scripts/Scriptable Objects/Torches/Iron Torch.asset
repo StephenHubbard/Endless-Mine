@@ -10,8 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3586e26a6f8bb8241991ca8dbe8db6ee, type: 3}
-  m_Name: Torch
+  m_Name: Iron Torch
   m_EditorClassIdentifier: 
   name: Torch
-  sprite: {fileID: 21300000, guid: 8f0653554b590cb418d979623ced98a4, type: 3}
-  goldValue: 5
+  sprite: {fileID: 6717470441782034276, guid: 8f0653554b590cb418d979623ced98a4, type: 3}
+  goldValue: 50
+  glowIntensity: 1.5

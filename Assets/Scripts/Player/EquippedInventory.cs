@@ -53,6 +53,7 @@ public class EquippedInventory : MonoBehaviour
             if (activeSlots[i] == true)
             {
                 activeItem = slots[i].transform.GetChild(0).gameObject;
+                equippedItemSprite.GetComponent<SpriteRenderer>().sprite = slots[i].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite;
             }
         }
     }

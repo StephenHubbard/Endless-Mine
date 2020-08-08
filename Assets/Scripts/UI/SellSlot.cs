@@ -15,6 +15,8 @@ public class SellSlot : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 
     private int itemGoldValue;
 
+    private float sellInterval = .1f;
+
     private void Awake()
     {
         currentGold = FindObjectOfType<CurrentGold>();
@@ -44,6 +46,7 @@ public class SellSlot : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     {
         if (eventData.button == PointerEventData.InputButton.Right)
         {
+            sellInterval = .1f;
             rightMouseButtonHeldDown = false;
             StopAllCoroutines();
         }
@@ -51,8 +54,6 @@ public class SellSlot : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 
     private IEnumerator sellItem()
     {
-
-        // TODO can technically sell with shop window open and inventory "closed" because of hidden alpha
         if (inventorySlot.amountInSlot >= 1 && shopWindow.activeInHierarchy)
         {
             inventorySlot.amountInSlot -= 1;
@@ -61,7 +62,8 @@ public class SellSlot : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
             itemGoldValue = gameObject.GetComponent<BlockInfo>().block.goldValue;
             currentGold.currentGold += itemGoldValue;
             currentGold.updateGoldAmount();
-            yield return new WaitForSeconds(.1f);
+            sellInterval -= .01f;
+            yield return new WaitForSeconds(sellInterval);
             StartCoroutine(sellItem());
         }
 

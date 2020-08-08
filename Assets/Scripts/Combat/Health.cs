@@ -64,7 +64,7 @@ namespace Netherforge.Combat
                 // take damage cd to prevent multiple hits in quick succession
                 if (gameObject.CompareTag("Player"))
                 {
-                    AudioSource.PlayClipAtPoint(jellyAttackSFX, Camera.main.transform.position, .8f);
+                    AudioSource.PlayClipAtPoint(jellyAttackSFX, Camera.main.transform.position, 1f);
                     playerTakeDamageCD = true;
                     StartCoroutine(takeDamageCD());
                 }

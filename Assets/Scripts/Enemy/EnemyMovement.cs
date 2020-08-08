@@ -65,17 +65,21 @@ public class EnemyMovement : MonoBehaviour
         int randomNum = Random.Range(2, 6);
         yield return new WaitForSeconds(randomNum);
 
-        if (isFacingRight())
+        // check if active in scene warning prevention
+        if (rb.bodyType == RigidbodyType2D.Dynamic)
         {
-            Vector2 jump = new Vector2(1.5f, 5f);
-            rb.velocity = jump;
+            if (isFacingRight())
+            {
+                Vector2 jump = new Vector2(1.5f, 5f);
+                rb.velocity = jump;
+            }
+            else if (!isFacingRight())
+            {
+                Vector2 jump = new Vector2(-1.5f, 5f);
+                rb.velocity = jump;
+            }
+            StartCoroutine(Jump());
         }
-        else if (!isFacingRight())
-        {
-            Vector2 jump = new Vector2(-1.5f, 5f);
-            rb.velocity = jump;
-        }
-        StartCoroutine(Jump());
     }
 
     private IEnumerator changeDirection()
@@ -89,13 +93,16 @@ public class EnemyMovement : MonoBehaviour
 
     private void checkDirection()
     {
-        if (isFacingRight() && isGrounded)
+        if (rb.bodyType == RigidbodyType2D.Dynamic)
         {
-            rb.velocity = new Vector2(moveSpeed, 0f);
-        }
-        else if (!isFacingRight() && isGrounded)
-        {
-            rb.velocity = new Vector2(-moveSpeed, 0f);
+            if (isFacingRight() && isGrounded)
+            {
+                rb.velocity = new Vector2(moveSpeed, 0f);
+            }
+            else if (!isFacingRight() && isGrounded)
+            {
+                rb.velocity = new Vector2(-moveSpeed, 0f);
+            }
         }
     }
 

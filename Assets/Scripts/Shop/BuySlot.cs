@@ -55,7 +55,7 @@ public class BuySlot : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
                     if (slot.transform.GetChild(0).GetComponent<PickaxeInfo>())
                     {
                         Destroy(slot.transform.GetChild(0).gameObject);
-                        boughtItem.transform.parent = slot.transform;
+                        boughtItem.transform.SetParent(slot.transform);
                         boughtItem.transform.position = slot.transform.position;
                     }
                 }
@@ -67,7 +67,19 @@ public class BuySlot : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
                     if (slot.transform.GetChild(0).GetComponent<WeaponInfo>())
                     {
                         Destroy(slot.transform.GetChild(0).gameObject);
-                        boughtItem.transform.parent = slot.transform;
+                        boughtItem.transform.SetParent(slot.transform);
+                        boughtItem.transform.position = slot.transform.position;
+                    }
+                }
+            }
+            else if (boughtItem.GetComponent<TorchInfo>())
+            {
+                if (slot.transform.childCount > 0)
+                {
+                    if (slot.transform.GetChild(0).GetComponent<TorchInfo>())
+                    {
+                        Destroy(slot.transform.GetChild(0).gameObject);
+                        boughtItem.transform.SetParent(slot.transform);
                         boughtItem.transform.position = slot.transform.position;
                     }
                 }
