@@ -16,6 +16,8 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] Vector2 knockback = new Vector2(1f, 1f);
     Health health;
 
+    int verticalInt;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -86,14 +88,27 @@ public class EnemyMovement : MonoBehaviour
     {
         int randomNum = Random.Range(1, 6);
         yield return new WaitForSeconds(randomNum);
+        verticalInt = Random.Range(-1, 2);
         Vector2 newDirection = new Vector2(-transform.localScale.x, 1);
         transform.localScale = newDirection;
         StartCoroutine(changeDirection());
     }
 
+    // different movement types for enemies
     private void checkDirection()
     {
-        if (rb.bodyType == RigidbodyType2D.Dynamic)
+        if (rb.bodyType == RigidbodyType2D.Dynamic && GetComponent<Bat>())
+        {
+            if (isFacingRight())
+            {
+                rb.velocity = new Vector2(moveSpeed, moveSpeed * verticalInt);
+            }
+            else if (!isFacingRight())
+            {
+                rb.velocity = new Vector2(-moveSpeed, moveSpeed * verticalInt);
+            }
+        }
+        else if (rb.bodyType == RigidbodyType2D.Dynamic)
         {
             if (isFacingRight() && isGrounded)
             {

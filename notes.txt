@@ -10,10 +10,5 @@ different shops depending on who you talk to
 
 more enemies (bats sprite available)
 
-different levels of torches 
-
-speed up selling block interval time
-
-
 
 

@@ -17505,6 +17505,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   blueJelly: {fileID: 3083575731887270157, guid: b95de373611535d49a77c86576a5a71f,
     type: 3}
+  bat: {fileID: 3083575731887270157, guid: c2a33a4cce30b354f92b5fb068f868ac, type: 3}
 --- !u!1 &1682348057
 GameObject:
   m_ObjectHideFlags: 0

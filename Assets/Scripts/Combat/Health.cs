@@ -21,7 +21,7 @@ namespace Netherforge.Combat
         bool playerTakeDamageCD = false;
 
         [SerializeField] AudioClip hurtSFX;
-        [SerializeField] AudioClip jellyAttackSFX;
+        //[SerializeField] AudioClip jellyAttackSFX;
 
 
         private void Awake()
@@ -64,7 +64,7 @@ namespace Netherforge.Combat
                 // take damage cd to prevent multiple hits in quick succession
                 if (gameObject.CompareTag("Player"))
                 {
-                    AudioSource.PlayClipAtPoint(jellyAttackSFX, Camera.main.transform.position, 1f);
+                    AudioSource.PlayClipAtPoint(hurtSFX, Camera.main.transform.position, 1f);
                     playerTakeDamageCD = true;
                     StartCoroutine(takeDamageCD());
                 }
