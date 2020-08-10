@@ -82,7 +82,7 @@ public class MineBlock : MonoBehaviour
         {
             torch = equippedInventory.activeItem;
         }
-        if (torch != null)
+        if (torch != null && currentBlock != null)
         {
             Instantiate(torch, currentBlock.transform.position, Quaternion.identity);
             torchSFX.Play();

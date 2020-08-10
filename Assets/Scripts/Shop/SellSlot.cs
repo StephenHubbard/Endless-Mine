@@ -73,6 +73,9 @@ public class SellSlot : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
             currentGold.updateGoldAmount();
             gameSession.goldEarnedThisDay += itemGoldValue;
             sellInterval -= .01f;
+
+            BlockInfo itemSold = gameObject.GetComponent<BlockInfo>();
+            gameSession.addToSoldItemsArray(itemSold);
             yield return new WaitForSeconds(sellInterval);
             StartCoroutine(sellItem());
         }
