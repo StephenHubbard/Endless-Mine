@@ -4,8 +4,6 @@ better direction / highlight active square
 
 bloom glow to torches
 
-
-
 different shops depending on who you talk to 
 
 torches/items fall if attached block is destroyed. 
@@ -13,6 +11,8 @@ torches/items fall if attached block is destroyed.
 generate world at the beginning of day 1 only
 
 basic main/start menu
+
+quantity to equipable items like torches and ladders
 
 
 

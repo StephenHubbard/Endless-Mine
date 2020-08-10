@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Netherforge.dialogue;
 
 public class GameSession : MonoBehaviour
 {
@@ -13,9 +14,38 @@ public class GameSession : MonoBehaviour
 
     public List<Block> soldItems = new List<Block>();
 
-    GameSession gameSession;
-
     private void Awake()
+    {
+        Singleton();
+    }
+
+    void Start()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    public void addToSoldItemsArray(BlockInfo itemSold)
+    {
+        Block thisItem = itemSold.GetComponent<BlockInfo>().block;
+        soldItems.Add(thisItem);
+
+    }
+
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if (scene.name == "NetherforgeMain")
+        {
+            goldEarnedThisDay = 0;
+            currentDay += 1;
+            soldItems.Clear();
+        }
+        if (scene.name == "EndOfDayScreen")
+        {
+            EndOfDayTally endOfDayTally = FindObjectOfType<EndOfDayTally>();
+        }
+    }
+
+    private void Singleton()
     {
         int numScenePersist = FindObjectsOfType<GameSession>().Length;
         if (numScenePersist > 1)
@@ -28,37 +58,5 @@ public class GameSession : MonoBehaviour
         }
     }
 
-    void Start()
-    {
-        gameSession = FindObjectOfType<GameSession>();
 
-        SceneManager.sceneLoaded += OnSceneLoaded;
-    }
-
-    public void addToSoldItemsArray(BlockInfo itemSold)
-    {
-        Block thisItem = itemSold.GetComponent<BlockInfo>().block;
-        soldItems.Add(thisItem);
-
-        foreach (Block item in soldItems)
-        {
-            //print(item.name);
-        }
-    }
-
-    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    {
-        if (scene.name == "NetherforgeMain")
-        {
-            gameSession.goldEarnedThisDay = 0;
-            gameSession.currentDay += 1;
-        }
-    }
-
-    void Update()
-    {
-        
-    }
-
-    
 }

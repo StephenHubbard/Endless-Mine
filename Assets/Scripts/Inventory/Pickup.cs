@@ -14,8 +14,6 @@ public class Pickup : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-
-
         if (collision.gameObject.tag == "Player" && pickedUp == false)
         {
             BlockInfo blockInfo = gameObject.GetComponent<BlockInfo>();
@@ -25,9 +23,6 @@ public class Pickup : MonoBehaviour
             {
                 addToInventory(blockInfo);
             }
-
-            
-
             Destroy(gameObject);
         }
     }

@@ -18434,7 +18434,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeOfDayText: {fileID: 698429313}
-  REAL_SECONDS_PER_INGAME_DAY: 600
+  REAL_SECONDS_PER_INGAME_DAY: 200
   day: 0
 --- !u!61 &1770020574
 BoxCollider2D:

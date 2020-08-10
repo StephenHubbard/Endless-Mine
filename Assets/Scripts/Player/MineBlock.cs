@@ -84,7 +84,8 @@ public class MineBlock : MonoBehaviour
         }
         if (torch != null && currentBlock != null)
         {
-            Instantiate(torch, currentBlock.transform.position, Quaternion.identity);
+            GameObject thisTorch = Instantiate(torch, currentBlock.transform.position, Quaternion.identity) as GameObject;
+            thisTorch.GetComponent<TorchInfo>().getAttachedBlock(currentBlock);
             torchSFX.Play();
         }
     }

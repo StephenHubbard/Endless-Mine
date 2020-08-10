@@ -9276,6 +9276,7 @@ GameObject:
   - component: {fileID: 635884297206625609}
   - component: {fileID: 635884297206625647}
   - component: {fileID: 635884297206625629}
+  - component: {fileID: 2963927369344040732}
   m_Layer: 0
   m_Name: Iron Torch
   m_TagString: Untagged
@@ -9435,3 +9436,16 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &2963927369344040732
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 635884297206625470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bb7f81e7d8c1544488ec36c0af2d1ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  block: {fileID: 11400000, guid: 1ece54a9ba91e1647b9f8f53dceab081, type: 2}

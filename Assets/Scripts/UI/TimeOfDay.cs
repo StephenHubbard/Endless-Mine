@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using Netherforge.dialogue;
 
 
 public class TimeOfDay : MonoBehaviour
@@ -9,7 +10,7 @@ public class TimeOfDay : MonoBehaviour
     public TextMeshProUGUI timeOfDayText;
 
     // must change value here and inspector
-    public float REAL_SECONDS_PER_INGAME_DAY = 600f;
+    public float REAL_SECONDS_PER_INGAME_DAY = 200f;
 
     public float day;
 
@@ -17,13 +18,13 @@ public class TimeOfDay : MonoBehaviour
     private float minutesPerHour = 60f;
 
     BackgroundChange backgroundChange;
-
-    
+    DialogueManager dialogueManager;
 
     private void Awake()
     {
         day += 0.33333f;
         backgroundChange = FindObjectOfType<BackgroundChange>();
+        dialogueManager = FindObjectOfType<DialogueManager>();
     }
 
     private void Update()
@@ -43,11 +44,7 @@ public class TimeOfDay : MonoBehaviour
     {
         if (day >= 1f)
         {
-            Time.timeScale = 0;
-        }
-        else
-        {
-            Time.timeScale = 1;
+            dialogueManager.GoToSleep();
         }
     }
 

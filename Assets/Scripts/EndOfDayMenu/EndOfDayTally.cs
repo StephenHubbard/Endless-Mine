@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class EndOfDayTally : MonoBehaviour
 {
@@ -11,23 +12,34 @@ public class EndOfDayTally : MonoBehaviour
 
     public List<Block> soldItems = new List<Block>();
 
-
     GameSession gameSession;
+
+    private bool raceConditionBugBool = false;
 
     private void Awake()
     {
+        
     }
 
     private void Start()
     {
-        gameSession = FindObjectOfType<GameSession>();
-        soldItems = gameSession.soldItems;
-        UpdateAllItemsSold();
-        transparentAlpha();
+        
+        
+
     }
 
     private void Update()
     {
+        gameSession = FindObjectOfType<GameSession>();
+        soldItems = gameSession.soldItems;
+
+        // Getting a buggy race condition between this script and the gameSession singleton
+        if (soldItems.Count > 0 && raceConditionBugBool == false)
+        {
+            UpdateAllItemsSold();
+            transparentAlpha();
+            raceConditionBugBool = true;
+        }
         updateGoldEarned();
         updateCurrentDay();
     }
