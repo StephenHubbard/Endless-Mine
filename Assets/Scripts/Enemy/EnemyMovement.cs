@@ -18,6 +18,9 @@ public class EnemyMovement : MonoBehaviour
 
     int verticalInt;
 
+    [SerializeField] AudioClip attackFromEnemySFX;
+
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -54,6 +57,8 @@ public class EnemyMovement : MonoBehaviour
         {
             health = collision.gameObject.GetComponent<Health>();
             health.TakeDamage(1f, knockback);
+            AudioSource.PlayClipAtPoint(attackFromEnemySFX, Camera.main.transform.position, .3f);
+
         }
     }
 

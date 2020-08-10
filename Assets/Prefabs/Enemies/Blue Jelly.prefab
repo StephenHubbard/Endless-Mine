@@ -74,7 +74,6 @@ MonoBehaviour:
   rb: {fileID: 3083575731887270167}
   animator: {fileID: 3083575731887270153}
   hurtSFX: {fileID: 8300000, guid: e2a8adffde06d5549be91a01b6957ada, type: 3}
-  jellyAttackSFX: {fileID: 8300000, guid: f9db59bf46583ce4295e028aa929bbc8, type: 3}
 --- !u!95 &3083575731887270153
 Animator:
   serializedVersion: 3
@@ -109,6 +108,7 @@ MonoBehaviour:
   moveSpeed: 1.5
   isGrounded: 0
   knockback: {x: -10, y: 7}
+  attackFromEnemySFX: {fileID: 8300000, guid: 76f714be273e273439b9826bb1dcbc3b, type: 3}
 --- !u!70 &3083575731887270155
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

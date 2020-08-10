@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Sandbox.unity
+    path: Assets/Scenes/NetherforgeMain.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/EndOfDayScreen.unity
+    guid: cd95c2c768200c64f9525a6053f27948
   m_configObjects: {}
