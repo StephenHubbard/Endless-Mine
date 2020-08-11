@@ -53,6 +53,69 @@ TextureImporter:
   - first:
       213: 2233817330986539556
     second: Terraria Sprite Sheet_16
+  - first:
+      213: 8564561217689390300
+    second: Terraria Sprite Sheet_0
+  - first:
+      213: 5383185551546788433
+    second: Terraria Sprite Sheet_1
+  - first:
+      213: 212994725254379268
+    second: Terraria Sprite Sheet_2
+  - first:
+      213: -2562956513697247919
+    second: Terraria Sprite Sheet_3
+  - first:
+      213: -7927886377014536844
+    second: Terraria Sprite Sheet_4
+  - first:
+      213: 7343728688197124299
+    second: Terraria Sprite Sheet_5
+  - first:
+      213: 2544858912434093114
+    second: Terraria Sprite Sheet_6
+  - first:
+      213: 5509855776013337982
+    second: Terraria Sprite Sheet_7
+  - first:
+      213: -697712979345179895
+    second: Terraria Sprite Sheet_8
+  - first:
+      213: 4684461754012300935
+    second: Terraria Sprite Sheet_9
+  - first:
+      213: -6633187416416418148
+    second: Terraria Sprite Sheet_10
+  - first:
+      213: -420680278036767985
+    second: Terraria Sprite Sheet_11
+  - first:
+      213: -52366657151062731
+    second: Terraria Sprite Sheet_12
+  - first:
+      213: -268497991402828353
+    second: Terraria Sprite Sheet_13
+  - first:
+      213: -9064662233219138046
+    second: Terraria Sprite Sheet_14
+  - first:
+      213: -2325769331838414399
+    second: Terraria Sprite Sheet_15
+  - first:
+      213: -2306706501676404108
+    second: Terraria Sprite Sheet_16
+  - first:
+      213: 2354581764694486437
+    second: Terraria Sprite Sheet_17
+  - first:
+      213: -8482043916729483357
+    second: Terraria Sprite Sheet_18
+  - first:
+      213: 3241116473197438856
+    second: Terraria Sprite Sheet_19
+  - first:
+      213: 911022451563745397
+    second: Terraria Sprite Sheet_20
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -154,18 +217,18 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 8
-        y: 129
+        y: 127
         width: 23
         height: 21
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 83ae2d052f6943e10800000000000000
-      internalID: 2176530487409044024
+      spriteID: cdc867dec0f6bd670800000000000000
+      internalID: 8564561217689390300
       vertices: []
       indices: 
       edges: []
@@ -174,19 +237,19 @@ TextureImporter:
       name: Terraria Sprite Sheet_1
       rect:
         serializedVersion: 2
-        x: 2
-        y: 97
-        width: 15
+        x: 3
+        y: 95
+        width: 14
         height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: db9983569ccd67480800000000000000
-      internalID: -8901684855906461251
+      spriteID: 15a26ffdcbae4ba40800000000000000
+      internalID: 5383185551546788433
       vertices: []
       indices: 
       edges: []
@@ -195,19 +258,19 @@ TextureImporter:
       name: Terraria Sprite Sheet_2
       rect:
         serializedVersion: 2
-        x: 2
-        y: 69
-        width: 15
+        x: 3
+        y: 67
+        width: 14
         height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5986b63699a1e2030800000000000000
-      internalID: 3471741608849533077
+      spriteID: 407b1d9f295b4f200800000000000000
+      internalID: 212994725254379268
       vertices: []
       indices: 
       edges: []
@@ -216,19 +279,19 @@ TextureImporter:
       name: Terraria Sprite Sheet_3
       rect:
         serializedVersion: 2
-        x: 24
-        y: 69
-        width: 15
+        x: 25
+        y: 67
+        width: 14
         height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ef4ec0c50d6624c60800000000000000
-      internalID: 7800910549642700030
+      spriteID: 15d4d4241ac8e6cd0800000000000000
+      internalID: -2562956513697247919
       vertices: []
       indices: 
       edges: []
@@ -237,19 +300,19 @@ TextureImporter:
       name: Terraria Sprite Sheet_4
       rect:
         serializedVersion: 2
-        x: 48
-        y: 69
-        width: 15
+        x: 49
+        y: 67
+        width: 14
         height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 962cf39b186307860800000000000000
-      internalID: 7525574908122743401
+      spriteID: 475d366085d7af190800000000000000
+      internalID: -7927886377014536844
       vertices: []
       indices: 
       edges: []
@@ -258,19 +321,19 @@ TextureImporter:
       name: Terraria Sprite Sheet_5
       rect:
         serializedVersion: 2
-        x: 72
-        y: 69
-        width: 15
+        x: 73
+        y: 67
+        width: 14
         height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c3d1005ffe7cdf890800000000000000
-      internalID: -7422556777415172804
+      spriteID: bc0c5da455a2ae560800000000000000
+      internalID: 7343728688197124299
       vertices: []
       indices: 
       edges: []
@@ -279,19 +342,19 @@ TextureImporter:
       name: Terraria Sprite Sheet_6
       rect:
         serializedVersion: 2
-        x: 2
-        y: 39
-        width: 16
+        x: 3
+        y: 37
+        width: 15
         height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 65b8c5c26a52b00b0800000000000000
-      internalID: -5761469902651356330
+      spriteID: a3cfe1792b7215320800000000000000
+      internalID: 2544858912434093114
       vertices: []
       indices: 
       edges: []
@@ -300,19 +363,19 @@ TextureImporter:
       name: Terraria Sprite Sheet_7
       rect:
         serializedVersion: 2
-        x: 2
-        y: 6
-        width: 15
+        x: 3
+        y: 4
+        width: 14
         height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f103d574600394d10800000000000000
-      internalID: 2110270703925014559
+      spriteID: e75c8e4c2a0f67c40800000000000000
+      internalID: 5509855776013337982
       vertices: []
       indices: 
       edges: []
@@ -322,18 +385,18 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 24
-        y: 6
+        y: 4
         width: 16
         height: 25
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ec0faa5a04cb5e080800000000000000
-      internalID: -9158707281344663346
+      spriteID: 90b73feedb93156f0800000000000000
+      internalID: -697712979345179895
       vertices: []
       indices: 
       edges: []
@@ -343,18 +406,18 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 47
-        y: 6
+        y: 4
         width: 16
         height: 25
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8175a3b60bc5390f0800000000000000
-      internalID: -1111442770247395560
+      spriteID: 7867ecb552d820140800000000000000
+      internalID: 4684461754012300935
       vertices: []
       indices: 
       edges: []
@@ -364,18 +427,18 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 73
-        y: 6
+        y: 4
         width: 16
         height: 25
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 163d639a6321afad0800000000000000
-      internalID: -2667799803287121055
+      spriteID: c9688eb503f22f3a0800000000000000
+      internalID: -6633187416416418148
       vertices: []
       indices: 
       edges: []
@@ -385,18 +448,18 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 99
-        y: 6
+        y: 4
         width: 15
         height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 736b3441335d767a0800000000000000
-      internalID: -6383899531414358473
+      spriteID: f0b1b971481792af0800000000000000
+      internalID: -420680278036767985
       vertices: []
       indices: 
       edges: []
@@ -405,19 +468,19 @@ TextureImporter:
       name: Terraria Sprite Sheet_12
       rect:
         serializedVersion: 2
-        x: 125
-        y: 6
-        width: 15
+        x: 126
+        y: 4
+        width: 14
         height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4f9bb5733e220d800800000000000000
-      internalID: 635045906740918772
+      spriteID: 53daf628dc4f54ff0800000000000000
+      internalID: -52366657151062731
       vertices: []
       indices: 
       edges: []
@@ -426,19 +489,19 @@ TextureImporter:
       name: Terraria Sprite Sheet_13
       rect:
         serializedVersion: 2
-        x: 150
-        y: 6
-        width: 15
+        x: 151
+        y: 4
+        width: 14
         height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 42f05973fb3e336b0800000000000000
-      internalID: -5317656324583649500
+      spriteID: fbd4787df7a164cf0800000000000000
+      internalID: -268497991402828353
       vertices: []
       indices: 
       edges: []
@@ -447,19 +510,19 @@ TextureImporter:
       name: Terraria Sprite Sheet_14
       rect:
         serializedVersion: 2
-        x: 176
-        y: 6
-        width: 15
+        x: 177
+        y: 4
+        width: 14
         height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e2b83a09accfb65b0800000000000000
-      internalID: -5373923783396324562
+      spriteID: 20ef21cb9b9d33280800000000000000
+      internalID: -9064662233219138046
       vertices: []
       indices: 
       edges: []
@@ -468,19 +531,19 @@ TextureImporter:
       name: Terraria Sprite Sheet_15
       rect:
         serializedVersion: 2
-        x: 203
-        y: 6
-        width: 15
+        x: 205
+        y: 4
+        width: 13
         height: 25
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8d79b9ddb340acd40800000000000000
-      internalID: 5605297341383546840
+      spriteID: 1c1164a7d1539bfd0800000000000000
+      internalID: -2325769331838414399
       vertices: []
       indices: 
       edges: []
@@ -489,19 +552,19 @@ TextureImporter:
       name: Terraria Sprite Sheet_16
       rect:
         serializedVersion: 2
-        x: 231
-        y: 6
-        width: 15
+        x: 233
+        y: 4
+        width: 13
         height: 25
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 42a509af60d100f10800000000000000
-      internalID: 2233817330986539556
+      spriteID: 4727e7e78aeecffd0800000000000000
+      internalID: -2306706501676404108
       vertices: []
       indices: 
       edges: []
