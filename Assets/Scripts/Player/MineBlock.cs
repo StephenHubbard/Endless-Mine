@@ -12,6 +12,7 @@ public class MineBlock : MonoBehaviour
     BlockHealth blockHealth;
     private int minePower;
 
+    [SerializeField] private GameObject savedObjects;
     public GameObject torch;
     public GameObject ladder;
 
@@ -72,7 +73,8 @@ public class MineBlock : MonoBehaviour
         int roundedX = Mathf.RoundToInt(transform.position.x);
         int roundedY = Mathf.RoundToInt(transform.position.y);
         Vector2 roundedVector2 = new Vector2(roundedX, roundedY);
-        Instantiate(ladder, roundedVector2, Quaternion.identity);
+        GameObject thisLadder = Instantiate(ladder, roundedVector2, Quaternion.identity);
+        thisLadder.transform.parent = savedObjects.transform;
         torchSFX.Play();
     }
 
@@ -86,6 +88,7 @@ public class MineBlock : MonoBehaviour
         {
             GameObject thisTorch = Instantiate(torch, currentBlock.transform.position, Quaternion.identity) as GameObject;
             thisTorch.GetComponent<TorchInfo>().getAttachedBlock(currentBlock);
+            thisTorch.transform.parent = savedObjects.transform;
             torchSFX.Play();
         }
     }

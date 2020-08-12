@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6341885079987527928}
   - component: {fileID: 8268012183838116224}
   - component: {fileID: -652225081509350959}
+  - component: {fileID: 8608482374918396343}
   m_Layer: 0
   m_Name: Iron
   m_TagString: Block
@@ -153,3 +154,15 @@ MonoBehaviour:
   blockPower: 0
   mineDirtSFX: {fileID: 8300000, guid: 910b93a102bbd5f488a3be99b164465f, type: 3}
   metalClankSFX: {fileID: 8300000, guid: 29e9d7e5201d5384ca69ad068204c364, type: 3}
+--- !u!114 &8608482374918396343
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 318187524556342125}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c306646b425832f4d813dd88d6b9603f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

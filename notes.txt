@@ -16,10 +16,16 @@ blend two sprite animations
 
 seperate two different hit() animator functions for pick axes.
 
+first slot of pickup inventory seems buggy
+
 // IDEAS
 
 have a "monster hunter" npc that you have to kill 
 randomly spawned "bosses" at random levels"
+
+// NOTES FOR DEV VLOG
+
+timestamp 2:26~ wed morning vid
 
 
 

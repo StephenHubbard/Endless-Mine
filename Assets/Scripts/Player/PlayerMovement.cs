@@ -238,6 +238,4 @@ public class PlayerMovement : MonoBehaviour
     {
         equippedItemSprite.SetActive(true);
     }
-
-    
 }

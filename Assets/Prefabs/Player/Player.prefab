@@ -343,6 +343,7 @@ GameObject:
   - component: {fileID: 3615275617954841929}
   - component: {fileID: 3615275617954841930}
   - component: {fileID: 1665830262}
+  - component: {fileID: 1242425154}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -489,7 +490,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.9375, y: 1.5}
+    oldSize: {x: 0.875, y: 1.5}
     newSize: {x: 0.15, y: 0.24}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -532,7 +533,6 @@ MonoBehaviour:
   equippedItemSprite: {fileID: 3615275618055967422}
   runSpeed: 25
   climbSpeed: 5
-  miningSpeed: 2
   cursorMappings:
   - type: 0
     texture: {fileID: 2800000, guid: 2e71a8202d3b4a3448ec85ced5a40265, type: 3}
@@ -583,8 +583,19 @@ MonoBehaviour:
   currentHealth: 3
   rb: {fileID: 3615275617954841933}
   animator: {fileID: 3615275617954841930}
-  hurtSFX: {fileID: 0}
-  jellyAttackSFX: {fileID: 8300000, guid: f9db59bf46583ce4295e028aa929bbc8, type: 3}
+  hurtSFX: {fileID: 8300000, guid: e2a8adffde06d5549be91a01b6957ada, type: 3}
+--- !u!114 &1242425154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3615275617954841922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c306646b425832f4d813dd88d6b9603f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3615275618055967422
 GameObject:
   m_ObjectHideFlags: 0
@@ -819,10 +830,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9aa99a49d9fd5d142be5e122fe42b56a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  torch: {fileID: 701242324703955344, guid: 50d84772a1291c84eaf391a276346ae6, type: 3}
+  savedObjects: {fileID: 0}
+  torch: {fileID: 635884297206625470, guid: 50d84772a1291c84eaf391a276346ae6, type: 3}
   ladder: {fileID: 4650931711211568453, guid: f7d33ad2077bd684a8804388ed8ded68, type: 3}
   isAbleToAction: 1
-  dirtSFX: {fileID: 3615275617841579394}
   torchSFX: {fileID: 1961886245}
 --- !u!50 &3615275618323914870
 Rigidbody2D:

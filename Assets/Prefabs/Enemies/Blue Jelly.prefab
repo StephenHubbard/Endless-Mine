@@ -16,6 +16,8 @@ GameObject:
   - component: {fileID: 3083575731887270155}
   - component: {fileID: 3083575731887270154}
   - component: {fileID: -661500594318400173}
+  - component: {fileID: 2750391577618409007}
+  - component: {fileID: 1263896594184225462}
   m_Layer: 0
   m_Name: Blue Jelly
   m_TagString: Enemy
@@ -188,3 +190,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d48527fa9c98bb46a11a6f9552f02b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2750391577618409007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3083575731887270157}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00793d4a164478540839ca614c35f32b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!58 &1263896594184225462
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3083575731887270157}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.11

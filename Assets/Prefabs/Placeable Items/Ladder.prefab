@@ -13,8 +13,9 @@ GameObject:
   - component: {fileID: 4650931711211568449}
   - component: {fileID: 3301984853256602326}
   - component: {fileID: -2551705676820942423}
+  - component: {fileID: -4932370125308239781}
   m_Layer: 10
-  m_Name: ladder
+  m_Name: Ladder
   m_TagString: Block
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -136,3 +137,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   StartPosition: {x: 0, y: 0, z: 0}
+--- !u!114 &-4932370125308239781
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4650931711211568453}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6896045785bd2b4ea7c65e583f7897e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blockHealth: 1
+  blockPower: 1
+  mineDirtSFX: {fileID: 8300000, guid: 910b93a102bbd5f488a3be99b164465f, type: 3}
+  metalClankSFX: {fileID: 8300000, guid: 29e9d7e5201d5384ca69ad068204c364, type: 3}

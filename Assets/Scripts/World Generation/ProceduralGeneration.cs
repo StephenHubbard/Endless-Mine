@@ -30,9 +30,9 @@ public class ProceduralGeneration : MonoBehaviour
 
     private void Start()
     {
-        GenerateCaves();
-        GenChunks();
-        SpreadMinerals();
+        //GenerateCaves();
+        //GenChunks();
+        //SpreadMinerals();
     }
 
     // Debug button
@@ -62,9 +62,6 @@ public class ProceduralGeneration : MonoBehaviour
     private void genSingleChunk(int spawnColumn, int spawnRow, GameObject chunk)
     {
         int chunkModifier = (numberOfChunks % 3) * 20;
-
-        
-
 
         for (int x = 0; x < 20; x++)
         {
@@ -106,10 +103,10 @@ public class ProceduralGeneration : MonoBehaviour
                     GameObject newBlockY = Instantiate(dirt, new Vector2(spawnColumn + x, spawnRow - y), Quaternion.identity);
                     newBlockY.transform.parent = chunk.transform;
                 }
-                else
-                {
-                    enemySpawns.spawnEnemies(coordinate, chunk);
-                }
+                //else
+                //{
+                //    enemySpawns.spawnEnemies(coordinate, chunk);
+                //}
             }
         }
 
