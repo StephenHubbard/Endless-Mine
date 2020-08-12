@@ -10,10 +10,28 @@ public class MainMenu : MonoBehaviour
     public GameObject loadingScreen;
     public Slider slider;
     [SerializeField] TextMeshProUGUI progressText;
+    GameSession gameSession;
 
     private float progress;
 
+    private void Awake()
+    {
+        gameSession = FindObjectOfType<GameSession>();
+    }
+
     public void StartNewGame(int sceneIndex)
+    {
+        gameSession.isNewGame = true;
+        StartCoroutine(LoadAsynchronously(sceneIndex));
+    }
+
+    public void LoadGame(int sceneIndex)
+    {
+        gameSession.isLoadedGame = true;
+        StartCoroutine(LoadAsynchronously(sceneIndex));
+    }
+
+    public void DevModeGame(int sceneIndex)
     {
         StartCoroutine(LoadAsynchronously(sceneIndex));
     }

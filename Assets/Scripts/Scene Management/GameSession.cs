@@ -14,6 +14,9 @@ public class GameSession : MonoBehaviour
 
     public List<Block> soldItems = new List<Block>();
 
+    public bool isNewGame = false;
+    public bool isLoadedGame = false;
+
     private void Awake()
     {
         Singleton();
@@ -21,7 +24,6 @@ public class GameSession : MonoBehaviour
 
     void Start()
     {
-        SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
     public void addToSoldItemsArray(BlockInfo itemSold)
@@ -31,19 +33,7 @@ public class GameSession : MonoBehaviour
 
     }
 
-    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    {
-        if (scene.name == "NetherforgeMain")
-        {
-            goldEarnedThisDay = 0;
-            currentDay += 1;
-            soldItems.Clear();
-        }
-        if (scene.name == "EndOfDayScreen")
-        {
-            EndOfDayTally endOfDayTally = FindObjectOfType<EndOfDayTally>();
-        }
-    }
+   
 
     private void Singleton()
     {

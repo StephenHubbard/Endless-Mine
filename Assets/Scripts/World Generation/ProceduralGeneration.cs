@@ -9,6 +9,8 @@ public class ProceduralGeneration : MonoBehaviour
     [SerializeField] GameObject chunkPrefab;
     EnemySpawns enemySpawns;
 
+    GameSession gameSession;
+
     // Cave Variables
     [Range(0, 100)]
     private int seed;
@@ -26,13 +28,17 @@ public class ProceduralGeneration : MonoBehaviour
     {
         seed = Random.Range(0, 1000000);
         enemySpawns = FindObjectOfType<EnemySpawns>();
+        gameSession = FindObjectOfType<GameSession>();
     }
 
     private void Start()
     {
-        //GenerateCaves();
-        //GenChunks();
-        //SpreadMinerals();
+        if (gameSession.isNewGame)
+        {
+            GenerateCaves();
+            GenChunks();
+            SpreadMinerals();
+        }
     }
 
     // Debug button
@@ -103,10 +109,13 @@ public class ProceduralGeneration : MonoBehaviour
                     GameObject newBlockY = Instantiate(dirt, new Vector2(spawnColumn + x, spawnRow - y), Quaternion.identity);
                     newBlockY.transform.parent = chunk.transform;
                 }
-                //else
-                //{
-                //    enemySpawns.spawnEnemies(coordinate, chunk);
-                //}
+                else
+                {
+                    if (gameSession.isNewGame)
+                    {
+                        enemySpawns.spawnEnemies(coordinate, chunk);
+                    }
+                }
             }
         }
 

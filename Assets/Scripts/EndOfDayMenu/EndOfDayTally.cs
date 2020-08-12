@@ -14,7 +14,7 @@ public class EndOfDayTally : MonoBehaviour
 
     GameSession gameSession;
 
-    private bool raceConditionBugBool = false;
+    public bool endDayBool = false;
 
     private void Awake()
     {
@@ -34,11 +34,11 @@ public class EndOfDayTally : MonoBehaviour
         soldItems = gameSession.soldItems;
 
         // Getting a buggy race condition between this script and the gameSession singleton
-        if (soldItems.Count > 0 && raceConditionBugBool == false)
+        if (soldItems.Count > 0 && endDayBool == false)
         {
             UpdateAllItemsSold();
             transparentAlpha();
-            raceConditionBugBool = true;
+            endDayBool = true;
         }
         updateGoldEarned();
         updateCurrentDay();
@@ -73,6 +73,17 @@ public class EndOfDayTally : MonoBehaviour
             else
             {
             }
+        }
+    }
+
+    public void resetSoldObjects()
+    {
+        foreach (Transform child in transform)
+        {
+            child.GetComponent<BlockInfo>().block = null;
+            child.GetComponent<Image>().sprite = null;
+            child.GetChild(0).GetComponent<AmountText>().amountInSlot = 0;
+            child.GetComponent<CanvasGroup>().alpha = 0;
         }
     }
 

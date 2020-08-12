@@ -9,18 +9,22 @@ namespace Netherforge.dialogue
     {
         [SerializeField] GameObject sleepButton;
         [SerializeField] GameObject shopButton;
+        [SerializeField] GameObject EndOfDayCanvas;
+        [SerializeField] GameObject UICanvas;
 
         Vector2 startingPlayerPosition;
 
         PlayerMovement player;
         TimeOfDay timeOfDay;
         DayLight dayLight;
+        GameSession gameSession;
 
         private void Awake()
         {
             startingPlayerPosition = FindObjectOfType<PlayerMovement>().transform.position;
             timeOfDay = FindObjectOfType<TimeOfDay>();
             dayLight = FindObjectOfType<DayLight>();
+            gameSession = FindObjectOfType<GameSession>();
         }
 
         void Start()
@@ -35,7 +39,9 @@ namespace Netherforge.dialogue
 
         public void endDay()
         {
-            SceneManager.LoadScene("EndOfDayScreen");
+            
+            EndOfDayCanvas.SetActive(true);
+            UICanvas.SetActive(false);
         }
 
     }

@@ -19,7 +19,10 @@ public class DayLight : MonoBehaviour
 
     void Update()
     {
-        timeOfDayFloat = FindObjectOfType<TimeOfDay>().day;
+        if (FindObjectOfType<TimeOfDay>())
+        {
+            timeOfDayFloat = FindObjectOfType<TimeOfDay>().day;
+        }
         if (timeOfDayFloat > .75f)
         {
             lightSourceIntensity -= Time.deltaTime / (timeOfDay.REAL_SECONDS_PER_INGAME_DAY * .25f);
@@ -32,6 +35,10 @@ public class DayLight : MonoBehaviour
                 gameObject.SetActive(false);
                 gameObject.SetActive(true);
             }
+        }
+        if (timeOfDayFloat < .75f)
+        {
+            lightSource.intensity = lightSourceIntensity;
         }
     }
 

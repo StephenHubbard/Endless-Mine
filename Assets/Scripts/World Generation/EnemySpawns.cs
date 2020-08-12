@@ -30,6 +30,13 @@ public class EnemySpawns : MonoBehaviour
     {
         Chunk[] chunks = FindObjectsOfType<Chunk>();
 
+        EnemyMovement[] previousEnemies = FindObjectsOfType<EnemyMovement>();
+
+        foreach (EnemyMovement child in previousEnemies)
+        {
+            Destroy(child.gameObject);
+        }
+
         foreach (Chunk child in chunks)
         {
             for (int x = 0; x < 20; x++)

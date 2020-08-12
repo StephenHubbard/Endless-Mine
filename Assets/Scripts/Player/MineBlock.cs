@@ -88,7 +88,8 @@ public class MineBlock : MonoBehaviour
         {
             GameObject thisTorch = Instantiate(torch, currentBlock.transform.position, Quaternion.identity) as GameObject;
             thisTorch.GetComponent<TorchInfo>().getAttachedBlock(currentBlock);
-            thisTorch.transform.parent = savedObjects.transform;
+            //TODO torch particle system doesn't properly save with ES3
+            //thisTorch.transform.parent = savedObjects.transform;
             torchSFX.Play();
         }
     }
