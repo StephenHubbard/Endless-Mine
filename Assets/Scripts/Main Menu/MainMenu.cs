@@ -16,11 +16,11 @@ public class MainMenu : MonoBehaviour
 
     private void Awake()
     {
-        gameSession = FindObjectOfType<GameSession>();
     }
 
     public void StartNewGame(int sceneIndex)
     {
+        gameSession = FindObjectOfType<GameSession>();
         gameSession.isNewGame = true;
         StartCoroutine(LoadAsynchronously(sceneIndex));
     }

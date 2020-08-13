@@ -17,6 +17,8 @@ public class GameSession : MonoBehaviour
     public bool isNewGame = false;
     public bool isLoadedGame = false;
 
+    GameMenu gameMenu;
+
     private void Awake()
     {
         Singleton();
@@ -24,13 +26,37 @@ public class GameSession : MonoBehaviour
 
     void Start()
     {
+        
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+
+            var gameMenuInactive = Resources.FindObjectsOfTypeAll<GameMenu>();
+            if (gameMenuInactive.Length > 0)
+            {
+                gameMenu = gameMenuInactive[0];
+            }
+
+            if (gameMenu.gameObject.activeInHierarchy)
+            {
+                gameMenu.gameObject.SetActive(false);
+                Time.timeScale = 1;
+            }
+            else
+            {
+                gameMenu.gameObject.SetActive(true);
+                Time.timeScale = 0;
+            }
+        }
     }
 
     public void addToSoldItemsArray(BlockInfo itemSold)
     {
         Block thisItem = itemSold.GetComponent<BlockInfo>().block;
         soldItems.Add(thisItem);
-
     }
 
    
